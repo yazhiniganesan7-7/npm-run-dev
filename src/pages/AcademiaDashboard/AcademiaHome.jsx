@@ -3,16 +3,25 @@ import { Link } from 'react-router-dom';
 import { useApp } from '../../context/AppContext';
 import { ResponsiveContainer, PieChart, Pie, Cell, Legend, Tooltip } from 'recharts';
 import StatCard from '../../components/StatCard';
-import { Users, Briefcase, Award, CheckSquare, Sparkles, AlertCircle, ArrowRight } from 'lucide-react';
+import { Users, Briefcase, Award, CheckSquare, ArrowRight } from 'lucide-react';
 
 const AcademiaHome = () => {
-  const { students, opportunities, collaborations, currentUser } = useApp();
+  const { students, companies, currentUser } = useApp();
 
-  if (!currentUser) return <div className="text-center py-12">Loading Admin dashboard...</div>;
+  const academicAdmin = (currentUser && currentUser.role === 'academic-admin') ? currentUser : {
+    id: 'inst-1',
+    name: 'Indian Institute of Technology Delhi (IIT Delhi)',
+    role: 'academic-admin',
+    adminName: 'Prof. Arvind Sharma (Dean, Placements & Internships)',
+    code: 'IITD-110016'
+  };
 
   // 1. Calculate academic metrics
-  const totalStudents = students.length;
-  const placementCount = students.filter(s => s.targetRole.includes('Placement') || s.cgpa > '8.5').length; // Mock placed ratio
+  const totalStudents = students?.length || 1;
+  const placementCount = (students || []).filter(s =>
+    s.targetRole?.toLowerCase().includes('engineer') ||
+    parseFloat(s.education?.cgpa || '0') >= 8.5
+  ).length;
   const placementRate = Math.round((placementCount / totalStudents) * 100);
 
   // Count active pending certifications
@@ -65,9 +74,9 @@ const AcademiaHome = () => {
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div className="space-y-2">
             <span className="text-xs font-semibold tracking-wider text-amber-400 uppercase">Engineering Placement & Training Office</span>
-            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight">{currentUser.name}</h2>
+            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight">{academicAdmin.name}</h2>
             <p className="text-slate-300 text-xs md:text-sm">
-              Logged in as {currentUser.adminName}. Audit engineering student metrics, approve certified skills, and review recruiter hiring readiness.
+              Logged in as {academicAdmin.adminName}. Audit engineering student metrics, approve certified skills, and review recruiter hiring readiness.
             </p>
           </div>
           <div className="px-4 py-2 bg-indigo-500/10 border border-indigo-500/25 rounded-lg text-indigo-400 text-xs font-bold uppercase tracking-wider">

@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useApp } from '../context/AppContext';
 import { GraduationCap, Building2, BookOpen, ChevronRight, Lock } from 'lucide-react';
 
 const RoleSelect = () => {
   const { loginAs, students, companies } = useApp();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   
-  const [selectedRole, setSelectedRole] = useState('student'); // 'student', 'recruiter', 'academic'
+  const initialRole = searchParams.get('role') || 'student';
+  const [selectedRole, setSelectedRole] = useState(initialRole);
   const [selectedStudentId, setSelectedStudentId] = useState(students[0]?.id || '');
   const [selectedCompanyId, setSelectedCompanyId] = useState(companies[0]?.id || '');
 

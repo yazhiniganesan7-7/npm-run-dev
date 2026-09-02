@@ -39,7 +39,22 @@ export const AppProvider = ({ children }) => {
 
   // Auth / Role Session State
   const [currentRole, setCurrentRole] = useState(() => getInitialState('sih_role', 'none')); // 'student', 'recruiter', 'academic', 'none'
-  const [currentUser, setCurrentUser] = useState(() => getInitialState('sih_user', null)); // Detailed user object based on role
+  const [currentUser, setCurrentUser] = useState(() => {
+    const user = getInitialState('sih_user', null);
+    const role = getInitialState('sih_role', 'none');
+    if (!user && role === 'academic') {
+      return {
+        id: 'inst-1',
+        name: 'Indian Institute of Technology Delhi (IIT Delhi)',
+        role: 'academic-admin',
+        adminName: 'Prof. Arvind Sharma (Dean, Placements & Internships)',
+        code: 'IITD-110016',
+        email: 'tpo@admin.iitd.ac.in',
+        avatar: 'IIT'
+      };
+    }
+    return user;
+  });
 
   // Core Data States
   const [students, setStudents] = useState(() => getInitialState('sih_students', MOCK_STUDENTS));
@@ -129,7 +144,9 @@ export const AppProvider = ({ children }) => {
         name: 'Indian Institute of Technology Delhi (IIT Delhi)',
         role: 'academic-admin',
         adminName: 'Prof. Arvind Sharma (Dean, Placements & Internships)',
-        code: 'IITD-110016'
+        code: 'IITD-110016',
+        email: 'tpo@admin.iitd.ac.in',
+        avatar: 'IIT'
       };
       setCurrentRole('academic');
       setCurrentUser(institute);

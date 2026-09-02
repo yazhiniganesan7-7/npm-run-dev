@@ -98,50 +98,81 @@ const Home = () => {
                 <span><strong>One-Click Apply:</strong> Browse matched opportunities and auto-generate a shareable portfolio card.</span>
               </li>
             </ul>
+            <div className="pt-2">
+              <Link
+                to="/role-select?role=student"
+                className="inline-flex items-center space-x-1.5 text-xs font-bold text-amber-700 bg-amber-50 hover:bg-amber-100 border border-amber-200 px-4 py-2.5 rounded-xl transition-all shadow-xs"
+              >
+                <span>Access Student Portal</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
           </div>
 
           {/* Recruiter Path */}
-          <div className="bg-white rounded-2xl border border-slate-200 p-8 shadow-xs space-y-6 hover:shadow-lg transition-all duration-300">
-            <div className="bg-emerald-50 border border-emerald-100 p-3.5 rounded-xl w-fit text-emerald-600">
-              <Building2 className="w-8 h-8" />
+          <div className="bg-white rounded-2xl border border-slate-200 p-8 shadow-xs space-y-6 hover:shadow-lg transition-all duration-300 flex flex-col justify-between">
+            <div className="space-y-6">
+              <div className="bg-emerald-50 border border-emerald-100 p-3.5 rounded-xl w-fit text-emerald-600">
+                <Building2 className="w-8 h-8" />
+              </div>
+              <h3 className="text-xl font-bold text-slate-900">For Industry / Recruiters</h3>
+              <ul className="space-y-4 text-sm text-slate-600">
+                <li className="flex items-start space-x-3">
+                  <CheckCircle2 className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" />
+                  <span><strong>Post Postings:</strong> Define internship or placements highlighting required skill taxonomy profiles.</span>
+                </li>
+                <li className="flex items-start space-x-3">
+                  <CheckCircle2 className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" />
+                  <span><strong>Skill-Match Search:</strong> Instantly filter candidate pools based on true overlap percentage.</span>
+                </li>
+                <li className="flex items-start space-x-3">
+                  <CheckCircle2 className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" />
+                  <span><strong>Track Recruitment:</strong> Manage candidates dynamically using a unified Kanban recruitment board.</span>
+                </li>
+              </ul>
             </div>
-            <h3 className="text-xl font-bold text-slate-900">For Industry / Recruiters</h3>
-            <ul className="space-y-4 text-sm text-slate-600">
-              <li className="flex items-start space-x-3">
-                <CheckCircle2 className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" />
-                <span><strong>Post Postings:</strong> Define internship or placements highlighting required skill taxonomy profiles.</span>
-              </li>
-              <li className="flex items-start space-x-3">
-                <CheckCircle2 className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" />
-                <span><strong>Skill-Match Search:</strong> Instantly filter candidate pools based on true overlap percentage.</span>
-              </li>
-              <li className="flex items-start space-x-3">
-                <CheckCircle2 className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" />
-                <span><strong>Track Recruitment:</strong> Manage candidates dynamically using a unified Kanban recruitment board.</span>
-              </li>
-            </ul>
+            <div className="pt-2">
+              <Link
+                to="/role-select?role=recruiter"
+                className="inline-flex items-center space-x-1.5 text-xs font-bold text-emerald-700 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 px-4 py-2.5 rounded-xl transition-all shadow-xs"
+              >
+                <span>Access Recruiter Portal</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
           </div>
 
           {/* Academician Path */}
-          <div className="bg-white rounded-2xl border border-slate-200 p-8 shadow-xs space-y-6 hover:shadow-lg transition-all duration-300">
-            <div className="bg-indigo-50 border border-indigo-100 p-3.5 rounded-xl w-fit text-indigo-600">
-              <BookOpen className="w-8 h-8" />
+          <div className="bg-white rounded-2xl border border-slate-200 p-8 shadow-xs space-y-6 hover:shadow-lg transition-all duration-300 flex flex-col justify-between">
+            <div className="space-y-6">
+              <div className="bg-indigo-50 border border-indigo-100 p-3.5 rounded-xl w-fit text-indigo-600">
+                <BookOpen className="w-8 h-8" />
+              </div>
+              <h3 className="text-xl font-bold text-slate-900">For Academicians / Admins</h3>
+              <ul className="space-y-4 text-sm text-slate-600">
+                <li className="flex items-start space-x-3">
+                  <CheckCircle2 className="w-5 h-5 text-indigo-500 mt-0.5 flex-shrink-0" />
+                  <span><strong>Directory Audits:</strong> View comprehensive dashboard lists of students and their placement readiness.</span>
+                </li>
+                <li className="flex items-start space-x-3">
+                  <CheckCircle2 className="w-5 h-5 text-indigo-500 mt-0.5 flex-shrink-0" />
+                  <span><strong>Verify Credentials:</strong> Review and verify student certifications to ensure portfolio reliability.</span>
+                </li>
+                <li className="flex items-start space-x-3">
+                  <CheckCircle2 className="w-5 h-5 text-indigo-500 mt-0.5 flex-shrink-0" />
+                  <span><strong>Curriculum Alignment:</strong> Synchronize industry tech stacks and bridge skill deficiencies with automated 30-day action roadmaps.</span>
+                </li>
+              </ul>
             </div>
-            <h3 className="text-xl font-bold text-slate-900">For Academicians / Admins</h3>
-            <ul className="space-y-4 text-sm text-slate-600">
-              <li className="flex items-start space-x-3">
-                <CheckCircle2 className="w-5 h-5 text-indigo-500 mt-0.5 flex-shrink-0" />
-                <span><strong>Directory Audits:</strong> View comprehensive dashboard lists of students and their placement readiness.</span>
-              </li>
-              <li className="flex items-start space-x-3">
-                <CheckCircle2 className="w-5 h-5 text-indigo-500 mt-0.5 flex-shrink-0" />
-                <span><strong>Verify Credentials:</strong> Review and verify student certifications to ensure portfolio reliability.</span>
-              </li>
-              <li className="flex items-start space-x-3">
-                <CheckCircle2 className="w-5 h-5 text-indigo-500 mt-0.5 flex-shrink-0" />
-                <span><strong>Curriculum Alignment:</strong> Synchronize industry tech stacks and bridge skill deficiencies with automated 30-day action roadmaps.</span>
-              </li>
-            </ul>
+            <div className="pt-2">
+              <Link
+                to="/role-select?role=academic"
+                className="inline-flex items-center space-x-1.5 text-xs font-bold text-indigo-700 bg-indigo-50 hover:bg-indigo-100 border border-indigo-200 px-4 py-2.5 rounded-xl transition-all shadow-xs"
+              >
+                <span>Access Academic Admin Portal</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
           </div>
 
         </div>
