@@ -1,9 +1,12 @@
 import React from 'react';
 import { ResponsiveContainer, LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 import StatCard from '../../components/StatCard';
-import { TrendingUp, Award, IndianRupee, Landmark } from 'lucide-react';
+import { TrendingUp, IndianRupee, Landmark, FileDown } from 'lucide-react';
+import { useApp } from '../../context/AppContext';
+import { downloadAcademyReport } from '../../utils/pdfGenerator';
 
 const AcademiaAnalytics = () => {
+  const { students, opportunities, companies, currentUser } = useApp();
   
   // Mock analytics datasets
   const placementRateTrends = [
@@ -32,10 +35,25 @@ const AcademiaAnalytics = () => {
   return (
     <div className="space-y-8">
       
-      {/* Title */}
-      <div className="border-b border-slate-200 pb-4">
-        <h2 className="text-2xl font-bold text-slate-900 tracking-tight">Placement & Skills Analytics</h2>
-        <p className="text-sm text-slate-500">Track multi-year academic placement trajectories and average stipend values across engineering departments.</p>
+      {/* Title with Download Action */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 pb-4">
+        <div>
+          <h2 className="text-2xl font-bold text-slate-900 tracking-tight">Placement & Skills Analytics</h2>
+          <p className="text-sm text-slate-500">Track multi-year academic placement trajectories and average stipend values across engineering departments.</p>
+        </div>
+        <button
+          onClick={() => downloadAcademyReport({
+            institution: currentUser,
+            students,
+            opportunities,
+            companies
+          })}
+          className="inline-flex items-center space-x-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs px-4 py-2.5 rounded-xl shadow-sm transition-all hover:shadow-md cursor-pointer flex-shrink-0"
+          title="Download Official Academic & Placement Report PDF"
+        >
+          <FileDown className="w-4 h-4" />
+          <span>Download Academy Report (PDF)</span>
+        </button>
       </div>
 
       {/* Overview Cards */}

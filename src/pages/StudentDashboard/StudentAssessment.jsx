@@ -17,8 +17,10 @@ import {
   Play,
   Briefcase,
   X,
-  Plus
+  Plus,
+  FileDown
 } from 'lucide-react';
+import { downloadLackOfSkillsReport } from '../../utils/pdfGenerator';
 
 const StudentAssessment = () => {
   const {
@@ -289,8 +291,25 @@ const StudentAssessment = () => {
             </p>
           </div>
 
-          <div className="flex items-center space-x-2">
-            <span className="text-xs font-bold text-slate-700 bg-slate-100 px-3 py-1.5 rounded-xl border border-slate-200">
+          <div className="flex flex-wrap items-center gap-3">
+            <button
+              onClick={() => downloadLackOfSkillsReport({
+                student: currentUser,
+                selectedJob,
+                verifiedSkills,
+                claimedSkills,
+                missingSkills,
+                matchScore,
+                thirtyDayPlan,
+                completedDays
+              })}
+              className="inline-flex items-center space-x-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs px-4 py-2.5 rounded-xl transition-all shadow-sm hover:shadow-md cursor-pointer"
+              title="Export official Lack of Skills & Recovery Plan PDF"
+            >
+              <FileDown className="w-4 h-4" />
+              <span>Download Lack of Skills Report (PDF)</span>
+            </button>
+            <span className="text-xs font-bold text-slate-700 bg-slate-100 px-3 py-2 rounded-xl border border-slate-200">
               {currentUser?.education?.degree?.split(' in ')[1] || 'Computer Science'}
             </span>
           </div>
@@ -882,6 +901,23 @@ const StudentAssessment = () => {
             <p className="text-[10px] text-slate-400 italic">
               {completedDays.length >= 30 ? '🎉 Sprint completed! Ready for tier-1 interviews.' : `${30 - completedDays.length} days remaining in roadmap`}
             </p>
+            <button
+              onClick={() => downloadLackOfSkillsReport({
+                student: currentUser,
+                selectedJob,
+                verifiedSkills,
+                claimedSkills,
+                missingSkills,
+                matchScore,
+                thirtyDayPlan,
+                completedDays
+              })}
+              className="w-full mt-2 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 border border-indigo-200 text-[11px] font-bold py-1.5 px-2.5 rounded-lg flex items-center justify-center space-x-1.5 transition-colors cursor-pointer"
+              title="Download 30-Day Skill Gap Recovery Roadmap PDF"
+            >
+              <FileDown className="w-3.5 h-3.5" />
+              <span>Download Roadmap (PDF)</span>
+            </button>
           </div>
         </div>
 

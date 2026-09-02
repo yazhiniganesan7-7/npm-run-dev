@@ -3,10 +3,11 @@ import { Link } from 'react-router-dom';
 import { useApp } from '../../context/AppContext';
 import { ResponsiveContainer, PieChart, Pie, Cell, Legend, Tooltip } from 'recharts';
 import StatCard from '../../components/StatCard';
-import { Users, Briefcase, Award, CheckSquare, ArrowRight } from 'lucide-react';
+import { Users, Briefcase, Award, CheckSquare, ArrowRight, FileDown } from 'lucide-react';
+import { downloadAcademyReport } from '../../utils/pdfGenerator';
 
 const AcademiaHome = () => {
-  const { students, companies, currentUser } = useApp();
+  const { students, companies, opportunities, currentUser } = useApp();
 
   const academicAdmin = (currentUser && currentUser.role === 'academic-admin') ? currentUser : {
     id: 'inst-1',
@@ -79,8 +80,23 @@ const AcademiaHome = () => {
               Logged in as {academicAdmin.adminName}. Audit engineering student metrics, approve certified skills, and review recruiter hiring readiness.
             </p>
           </div>
-          <div className="px-4 py-2 bg-indigo-500/10 border border-indigo-500/25 rounded-lg text-indigo-400 text-xs font-bold uppercase tracking-wider">
-            Campus Placement Cell
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 flex-shrink-0">
+            <button
+              onClick={() => downloadAcademyReport({
+                institution: academicAdmin,
+                students,
+                opportunities,
+                companies
+              })}
+              className="bg-white hover:bg-slate-100 text-slate-900 font-bold px-4 py-2 rounded-xl text-xs flex items-center justify-center space-x-1.5 transition-all shadow-sm hover:shadow-md cursor-pointer"
+              title="Download Official Student Academy Report PDF"
+            >
+              <FileDown className="w-4 h-4 text-indigo-600" />
+              <span>Download Academy Report (PDF)</span>
+            </button>
+            <div className="px-3 py-1.5 bg-indigo-500/10 border border-indigo-500/25 rounded-xl text-indigo-400 text-xs font-bold uppercase tracking-wider text-center">
+              Campus Placement Cell
+            </div>
           </div>
         </div>
       </div>

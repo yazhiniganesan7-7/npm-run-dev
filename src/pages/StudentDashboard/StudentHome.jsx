@@ -2,7 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useApp } from '../../context/AppContext';
 import ProgressBar from '../../components/ProgressBar';
-import { Award, Briefcase, FileCheck, Share2, ArrowRight, CheckCircle2, BookmarkCheck, HelpCircle } from 'lucide-react';
+import { Award, Briefcase, FileCheck, Share2, ArrowRight, BookmarkCheck, HelpCircle, FileDown } from 'lucide-react';
+import { downloadLackOfSkillsReport } from '../../utils/pdfGenerator';
 
 const StudentHome = () => {
   const { currentUser, opportunities, applications } = useApp();
@@ -103,13 +104,39 @@ const StudentHome = () => {
             Follow our 4-week structured engineering curriculum designed to eliminate your missing skills and maximize match scoring with top recruiters like Google, Microsoft, and NVIDIA.
           </p>
         </div>
-        <Link
-          to="/student/assessment"
-          className="bg-gradient-to-r from-amber-500 to-teal-400 hover:from-amber-600 hover:to-teal-500 text-slate-950 font-bold px-5 py-2.5 rounded-xl text-xs flex items-center space-x-1.5 transition-all shadow-md flex-shrink-0"
-        >
-          <span>Open 30-Day Roadmap</span>
-          <ArrowRight className="w-4 h-4" />
-        </Link>
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 flex-shrink-0">
+          <button
+            onClick={() => {
+              const targetOpp = opportunities[0];
+              const req = targetOpp?.requiredSkills || [];
+              const vSkills = currentUser.verifiedSkills || [];
+              const cSkills = currentUser.claimedSkills || [];
+              const missing = req.filter(s => !vSkills.some(v => v.name === s) && !cSkills.includes(s));
+              downloadLackOfSkillsReport({
+                student: currentUser,
+                selectedJob: targetOpp,
+                verifiedSkills: vSkills,
+                claimedSkills: cSkills,
+                missingSkills: missing,
+                matchScore: 78,
+                thirtyDayPlan: [],
+                completedDays: [1, 2, 3]
+              });
+            }}
+            className="bg-white/10 hover:bg-white/20 text-white border border-white/20 font-bold px-4 py-2.5 rounded-xl text-xs flex items-center justify-center space-x-1.5 transition-all cursor-pointer shadow-xs"
+            title="Download PDF report of missing competencies & recovery roadmap"
+          >
+            <FileDown className="w-4 h-4" />
+            <span>Download Report (PDF)</span>
+          </button>
+          <Link
+            to="/student/assessment?tab=plan"
+            className="bg-gradient-to-r from-amber-500 to-teal-400 hover:from-amber-600 hover:to-teal-500 text-slate-950 font-bold px-5 py-2.5 rounded-xl text-xs flex items-center justify-center space-x-1.5 transition-all shadow-md"
+          >
+            <span>Open 30-Day Roadmap</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
       </div>
 
       {/* Main Content Layout (Portfolio on Left, Matches on Right) */}

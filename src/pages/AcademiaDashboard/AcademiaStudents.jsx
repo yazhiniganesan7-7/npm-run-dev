@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { useApp } from '../../context/AppContext';
-import { Search, GraduationCap, X, CheckCircle, ShieldAlert, Award, FileText } from 'lucide-react';
+import { Search, X, FileDown } from 'lucide-react';
+import { downloadAcademyReport, downloadStudentDossierPDF } from '../../utils/pdfGenerator';
 
 const AcademiaStudents = () => {
-  const { students } = useApp();
+  const { students, currentUser, opportunities, companies } = useApp();
   
   const [search, setSearch] = useState('');
   const [degreeFilter, setDegreeFilter] = useState('All');
@@ -31,10 +32,25 @@ const AcademiaStudents = () => {
   return (
     <div className="space-y-6">
       
-      {/* Title */}
-      <div className="border-b border-slate-200 pb-4">
-        <h2 className="text-2xl font-bold text-slate-900 tracking-tight">Student Directory</h2>
-        <p className="text-sm text-slate-500">Monitor and search academic records, verified skills, and job readiness status across engineering departments.</p>
+      {/* Title with Download Action */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 pb-4">
+        <div>
+          <h2 className="text-2xl font-bold text-slate-900 tracking-tight">Student Directory & Academic Audit</h2>
+          <p className="text-sm text-slate-500">Monitor academic records, verified skills, and placement readiness across engineering departments.</p>
+        </div>
+        <button
+          onClick={() => downloadAcademyReport({
+            institution: currentUser,
+            students,
+            opportunities,
+            companies
+          })}
+          className="inline-flex items-center space-x-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs px-4 py-2.5 rounded-xl shadow-sm transition-all hover:shadow-md cursor-pointer flex-shrink-0"
+          title="Download Official Student Academy Report PDF"
+        >
+          <FileDown className="w-4 h-4" />
+          <span>Download Academy Report (PDF)</span>
+        </button>
       </div>
 
       {/* Filters */}
@@ -238,7 +254,16 @@ const AcademiaStudents = () => {
             </div>
 
             {/* Modal Footer */}
-            <div className="p-4 border-t border-slate-100 flex items-center justify-end space-x-2 bg-slate-50">
+            <div className="p-4 border-t border-slate-100 flex items-center justify-between bg-slate-50">
+              <button
+                onClick={() => downloadStudentDossierPDF({ student: selectedStudent, institution: currentUser })}
+                className="bg-indigo-50 hover:bg-indigo-100 text-indigo-700 font-bold px-4 py-2 rounded-xl text-xs border border-indigo-200 transition-colors flex items-center space-x-1.5 cursor-pointer shadow-2xs"
+                title="Download verified student academic dossier PDF"
+              >
+                <FileDown className="w-3.5 h-3.5" />
+                <span>Download Student Dossier (PDF)</span>
+              </button>
+
               <button
                 onClick={() => setSelectedStudent(null)}
                 className="bg-slate-900 hover:bg-slate-800 text-white font-bold px-4 py-2 rounded-xl text-xs shadow-xs"
