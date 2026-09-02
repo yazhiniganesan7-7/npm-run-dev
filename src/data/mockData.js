@@ -135,11 +135,25 @@ export const MOCK_STUDENTS = [
     institutionName: 'Indian Institute of Technology Delhi (IIT Delhi)',
     avatar: 'AS',
     targetRole: 'Full-Stack Software Development Engineer',
+    verifiedSkills: [
+      { name: 'Data Structures & Algorithms', level: 'Advanced', score: 95, date: '2026-07-15' },
+      { name: 'React & Frontend Dev', level: 'Advanced', score: 90, date: '2026-08-01' },
+      { name: 'Python Programming', level: 'Intermediate', score: 78, date: '2026-08-10' },
+      { name: 'SQL & Database Management', level: 'Intermediate', score: 74, date: '2026-08-18' }
+    ],
+    claimedSkills: [
+      'System Design & Distributed Systems',
+      'Cloud Computing (AWS/GCP)',
+      'API Development & Microservices',
+      'DevOps & CI/CD Pipelines'
+    ],
     skills: [
       'Data Structures & Algorithms',
       'React & Frontend Dev',
       'Python Programming',
       'SQL & Database Management',
+      'System Design & Distributed Systems',
+      'Cloud Computing (AWS/GCP)',
       'Git & Open Source Workflow',
       'Problem Solving & Analytical Thinking',
       'Unit Testing & Quality Assurance'
@@ -180,6 +194,17 @@ export const MOCK_STUDENTS = [
     institutionName: 'Indian Institute of Technology Bombay (IIT Bombay)',
     avatar: 'PP',
     targetRole: 'Machine Learning & AI Research Engineer',
+    verifiedSkills: [
+      { name: 'Machine Learning', level: 'Advanced', score: 96, date: '2026-07-20' },
+      { name: 'Deep Learning (PyTorch/TensorFlow)', level: 'Advanced', score: 92, date: '2026-08-05' },
+      { name: 'Python Programming', level: 'Advanced', score: 94, date: '2026-08-12' },
+      { name: 'Data Analysis & Visualization', level: 'Intermediate', score: 78, date: '2026-08-22' }
+    ],
+    claimedSkills: [
+      'Large Language Models & GenAI',
+      'System Design & Distributed Systems',
+      'Cloud Computing (AWS/GCP)'
+    ],
     skills: [
       'Machine Learning',
       'Deep Learning (PyTorch/TensorFlow)',
@@ -223,6 +248,16 @@ export const MOCK_STUDENTS = [
     institutionName: 'Indian Institute of Technology Madras (IIT Madras)',
     avatar: 'KN',
     targetRole: 'Embedded Systems & Firmware Engineer',
+    verifiedSkills: [
+      { name: 'Embedded Systems & RTOS', level: 'Advanced', score: 88, date: '2026-06-15' },
+      { name: 'IoT & Sensor Networks', level: 'Intermediate', score: 76, date: '2026-07-10' },
+      { name: 'Signal Processing', level: 'Intermediate', score: 72, date: '2026-08-02' }
+    ],
+    claimedSkills: [
+      'Robotics & Control Systems',
+      'Python Programming',
+      'Data Structures & Algorithms'
+    ],
     skills: [
       'Embedded Systems & RTOS',
       'IoT & Sensor Networks',
@@ -264,6 +299,17 @@ export const MOCK_STUDENTS = [
     institutionName: 'Indian Institute of Technology Kharagpur (IIT Kharagpur)',
     avatar: 'AD',
     targetRole: 'Cloud & DevOps Solutions Architect',
+    verifiedSkills: [
+      { name: 'Cloud Computing (AWS/GCP)', level: 'Advanced', score: 94, date: '2026-07-01' },
+      { name: 'DevOps & CI/CD Pipelines', level: 'Advanced', score: 90, date: '2026-07-25' },
+      { name: 'Containerization (Docker & Kubernetes)', level: 'Advanced', score: 92, date: '2026-08-14' },
+      { name: 'System Design & Distributed Systems', level: 'Intermediate', score: 75, date: '2026-08-20' }
+    ],
+    claimedSkills: [
+      'Python Programming',
+      'SQL & Database Management',
+      'API Development & Microservices'
+    ],
     skills: [
       'Cloud Computing (AWS/GCP)',
       'DevOps & CI/CD Pipelines',
@@ -304,6 +350,16 @@ export const MOCK_STUDENTS = [
     institutionName: 'National Institute of Technology Trichy (NIT Trichy)',
     avatar: 'TG',
     targetRole: 'Robotics & Automation Specialist',
+    verifiedSkills: [
+      { name: 'Robotics & Control Systems', level: 'Advanced', score: 90, date: '2026-06-28' },
+      { name: 'CAD Modeling & FEA Simulation', level: 'Advanced', score: 86, date: '2026-07-12' },
+      { name: 'IoT & Sensor Networks', level: 'Intermediate', score: 74, date: '2026-08-04' }
+    ],
+    claimedSkills: [
+      'Python Programming',
+      'Embedded Systems & RTOS',
+      'Data Structures & Algorithms'
+    ],
     skills: [
       'Robotics & Control Systems',
       'CAD Modeling & FEA Simulation',
@@ -344,6 +400,17 @@ export const MOCK_STUDENTS = [
     institutionName: 'Birla Institute of Technology and Science, Pilani (BITS Pilani)',
     avatar: 'RV',
     targetRole: 'Backend & High-Throughput Distributed Systems Engineer',
+    verifiedSkills: [
+      { name: 'Data Structures & Algorithms', level: 'Advanced', score: 92, date: '2026-07-10' },
+      { name: 'API Development & Microservices', level: 'Advanced', score: 88, date: '2026-07-28' },
+      { name: 'System Design & Distributed Systems', level: 'Intermediate', score: 76, date: '2026-08-15' },
+      { name: 'SQL & Database Management', level: 'Intermediate', score: 70, date: '2026-08-24' }
+    ],
+    claimedSkills: [
+      'Cloud Computing (AWS/GCP)',
+      'DevOps & CI/CD Pipelines',
+      'Containerization (Docker & Kubernetes)'
+    ],
     skills: [
       'Data Structures & Algorithms',
       'API Development & Microservices',

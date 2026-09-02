@@ -168,7 +168,87 @@ export const AppProvider = ({ children }) => {
       }
       return s;
     }));
+    if (currentUser?.id === studentId) {
+      setCurrentUser(prev => ({ ...prev, ...updatedProfile }));
+    }
     showToast('Profile updated successfully');
+  };
+
+  const verifySkillWithTest = (studentId, skillName, score, level) => {
+    const today = new Date().toISOString().split('T')[0];
+    const updateHelper = (student) => {
+      const existingVerified = student.verifiedSkills || [];
+      const filteredVerified = existingVerified.filter(v => v.name !== skillName);
+      const newVerified = [
+        ...filteredVerified,
+        { name: skillName, level, score, date: today }
+      ];
+      const existingClaimed = student.claimedSkills || [];
+      const newClaimed = existingClaimed.filter(c => c !== skillName);
+      const existingSkills = student.skills || [];
+      const newSkills = existingSkills.includes(skillName) ? existingSkills : [...existingSkills, skillName];
+
+      return {
+        ...student,
+        verifiedSkills: newVerified,
+        claimedSkills: newClaimed,
+        skills: newSkills
+      };
+    };
+
+    setStudents(prev => prev.map(s => s.id === studentId ? updateHelper(s) : s));
+    if (currentUser?.id === studentId) {
+      setCurrentUser(prev => updateHelper(prev));
+    }
+
+    showToast(`🎉 Verified "${skillName}" as ${level} (${score}%)!`, 'success');
+  };
+
+  const claimSkill = (studentId, skillName) => {
+    const claimHelper = (student) => {
+      const claimed = student.claimedSkills || [];
+      if (!claimed.includes(skillName)) {
+        return { ...student, claimedSkills: [...claimed, skillName] };
+      }
+      return student;
+    };
+
+    setStudents(prev => prev.map(s => s.id === studentId ? claimHelper(s) : s));
+    if (currentUser?.id === studentId) {
+      setCurrentUser(prev => claimHelper(prev));
+    }
+    showToast(`Claimed "${skillName}". Ready to take 5-question test!`, 'info');
+  };
+
+  const shortlistCandidate = (studentId, opportunityId) => {
+    const opp = opportunities.find(o => o.id === opportunityId);
+    const student = students.find(s => s.id === studentId);
+    const existing = applications.find(a => a.studentId === studentId && a.opportunityId === opportunityId);
+    const today = new Date().toISOString().split('T')[0];
+
+    if (existing) {
+      if (existing.status === 'Shortlisted') {
+        showToast(`${student?.name || 'Candidate'} is already shortlisted`, 'info');
+        return;
+      }
+      updateApplicationStatus(existing.id, 'Shortlisted', 'Shortlisted by recruiter via Candidate Matching');
+    } else {
+      const newApp = {
+        id: `app-${Date.now()}`,
+        studentId,
+        opportunityId,
+        status: 'Shortlisted',
+        appliedDate: today,
+        feedback: 'Directly shortlisted by recruiter via Candidate Matching engine.',
+        timeline: [
+          { status: 'Applied', date: today, description: 'Profile imported into pipeline' },
+          { status: 'Shortlisted', date: today, description: 'Directly shortlisted by hiring team' }
+        ]
+      };
+      setApplications(prev => [newApp, ...prev]);
+    }
+
+    showToast(`⭐ Shortlisted ${student?.name || 'Candidate'} for ${opp?.title || 'the role'}!`, 'success');
   };
 
   const applyForOpportunity = (studentId, opportunityId) => {
@@ -321,6 +401,9 @@ export const AppProvider = ({ children }) => {
       logout,
       resetMockData,
       updateStudentProfile,
+      verifySkillWithTest,
+      claimSkill,
+      shortlistCandidate,
       applyForOpportunity,
       updateCompanyProfile,
       addOpportunity,

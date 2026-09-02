@@ -46,15 +46,22 @@ const StudentOpportunities = () => {
 
   // Helper matching percentage
   const calculateMatchDetails = (opp) => {
-    if (!opp || !currentUser) return { score: 0, matched: [], missing: [] };
+    if (!opp || !currentUser) return { score: 0, verified: [], claimed: [], missing: [] };
     const req = opp.requiredSkills || [];
-    const studentSkills = currentUser.skills || [];
+    const verifiedList = currentUser.verifiedSkills || [];
+    const claimedList = currentUser.claimedSkills || [];
+
+    const verified = req.filter(s => verifiedList.some(v => v.name.toLowerCase() === s.toLowerCase()));
+    const claimed = req.filter(s => !verified.includes(s) && (
+      claimedList.some(c => c.toLowerCase() === s.toLowerCase()) ||
+      (currentUser.skills || []).some(cs => cs.toLowerCase() === s.toLowerCase())
+    ));
+    const missing = req.filter(s => !verified.includes(s) && !claimed.includes(s));
     
-    const matched = req.filter(s => studentSkills.includes(s));
-    const missing = req.filter(s => !studentSkills.includes(s));
-    const score = req.length > 0 ? Math.round((matched.length / req.length) * 100) : 100;
+    // 100% weight for verified, 50% for claimed
+    const score = req.length > 0 ? Math.round(((verified.length * 1.0 + claimed.length * 0.5) / req.length) * 100) : 100;
     
-    return { score, matched, missing };
+    return { score, verified, claimed, missing };
   };
 
   const matchDetails = calculateMatchDetails(activeOpp);
@@ -247,22 +254,66 @@ const StudentOpportunities = () => {
                 <div className="space-y-3 p-4 border border-slate-100 rounded-xl bg-slate-50/20">
                   <ProgressBar value={matchDetails.score} label="Overall Match Level" color="dynamic" />
                   
-                  <div className="pt-2">
-                    <p className="text-[10px] text-slate-400 uppercase font-bold tracking-wider mb-2">Required Skills Mapping</p>
-                    <div className="flex flex-wrap gap-1.5">
-                      {matchDetails.matched.map(skill => (
-                        <span key={skill} className="inline-flex items-center space-x-1 bg-emerald-50 border border-emerald-100 text-emerald-800 px-2.5 py-1 rounded-md text-xs font-medium">
-                          <Check className="w-3.5 h-3.5 text-emerald-600" />
-                          <span>{skill}</span>
-                        </span>
-                      ))}
-                      {matchDetails.missing.map(skill => (
-                        <span key={skill} className="inline-flex items-center space-x-1 bg-rose-50 border border-rose-100 text-rose-800 px-2.5 py-1 rounded-md text-xs font-medium">
-                          <X className="w-3.5 h-3.5 text-rose-600" />
-                          <span>{skill}</span>
-                        </span>
-                      ))}
-                    </div>
+                  <div className="pt-2 space-y-2">
+                    <p className="text-[10px] text-slate-400 uppercase font-bold tracking-wider">Required Skills Breakdown</p>
+                    
+                    {/* Verified Skills */}
+                    {matchDetails.verified.length > 0 && (
+                      <div className="space-y-1">
+                        <span className="text-[10px] font-bold text-emerald-800 uppercase tracking-wider block">Verified Skills:</span>
+                        <div className="flex flex-wrap gap-1.5">
+                          {matchDetails.verified.map(skill => {
+                            const vObj = currentUser?.verifiedSkills?.find(v => v.name.toLowerCase() === skill.toLowerCase());
+                            return (
+                              <span key={skill} className="inline-flex items-center space-x-1 bg-emerald-50 border border-emerald-200 text-emerald-800 px-2 py-0.5 rounded-md text-xs font-bold">
+                                <Check className="w-3 h-3 text-emerald-600" />
+                                <span>{skill}</span>
+                                {vObj && (
+                                  <span className="text-[9px] bg-emerald-100 text-emerald-900 px-1 rounded font-extrabold uppercase ml-1">
+                                    {vObj.level}
+                                  </span>
+                                )}
+                              </span>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Claimed Skills */}
+                    {matchDetails.claimed.length > 0 && (
+                      <div className="space-y-1 pt-1">
+                        <span className="text-[10px] font-bold text-indigo-800 uppercase tracking-wider block">Claimed (Needs 5-Q Test):</span>
+                        <div className="flex flex-wrap gap-1.5">
+                          {matchDetails.claimed.map(skill => (
+                            <Link
+                              key={skill}
+                              to="/student/assessment"
+                              className="inline-flex items-center space-x-1 bg-indigo-50 border border-indigo-200 text-indigo-800 hover:bg-indigo-100 px-2 py-0.5 rounded-md text-xs font-bold transition-colors"
+                              title="Click to take 5-question test"
+                            >
+                              <span>{skill}</span>
+                              <span className="text-[9px] bg-indigo-100 text-indigo-800 px-1 rounded font-extrabold">Verify Test →</span>
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Missing Skills */}
+                    {matchDetails.missing.length > 0 && (
+                      <div className="space-y-1 pt-1">
+                        <span className="text-[10px] font-bold text-rose-800 uppercase tracking-wider block">Missing Skills:</span>
+                        <div className="flex flex-wrap gap-1.5">
+                          {matchDetails.missing.map(skill => (
+                            <span key={skill} className="inline-flex items-center space-x-1 bg-rose-50 border border-rose-200 text-rose-800 px-2 py-0.5 rounded-md text-xs font-medium">
+                              <X className="w-3 h-3 text-rose-600" />
+                              <span>{skill}</span>
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
 
                     {matchDetails.missing.length > 0 && (
                       <div className="pt-3 border-t border-slate-200/60 mt-3 flex items-center justify-between">
@@ -270,7 +321,7 @@ const StudentOpportunities = () => {
                           {matchDetails.missing.length} missing skill{matchDetails.missing.length > 1 ? 's' : ''} detected
                         </span>
                         <Link
-                          to="/student/assessment"
+                          to="/student/assessment?tab=plan"
                           className="inline-flex items-center space-x-1 text-[11px] font-bold text-indigo-700 bg-indigo-50 hover:bg-indigo-100 border border-indigo-200 px-2.5 py-1 rounded-lg transition-colors shadow-2xs"
                         >
                           <span>Start 30-Day Plan to Qualify</span>
