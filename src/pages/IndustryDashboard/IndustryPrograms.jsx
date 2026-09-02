@@ -18,22 +18,22 @@ const IndustryPrograms = () => {
       {
         id: 'prog-1',
         companyId: 'comp-2',
-        companyName: 'Patanjali Research Foundation',
-        title: 'Modern GMP Quality Control for Ayush Formulations',
+        companyName: 'Microsoft India',
+        title: 'Distributed Cloud Architecture & High-Scale Systems Masterclass',
         duration: '4 Weeks (Saturdays)',
         category: 'Certification',
-        desc: 'A hands-on training module covering heavy metal limits validation, HPLC trace-element fingerprinting, and CDSCO compliance dossier drafting.',
-        enrollments: 45
+        desc: 'Hands-on training module covering event-driven microservices, Raft consensus algorithms, and Kubernetes service orchestration.',
+        enrollments: 120
       },
       {
         id: 'prog-2',
         companyId: 'comp-1',
-        companyName: 'Himalaya Wellness Co.',
-        title: 'Phytochemical Isolation & Standardization Masterclass',
+        companyName: 'Google India',
+        title: 'Large Language Model (LLM) Fine-Tuning & RAG Systems Bootcamp',
         duration: '2 Weeks (Online)',
         category: 'Masterclass',
-        desc: 'Learn standard protocols for extracting and authenticating secondary metabolites from wild Himalayan herb stock. Covers TLC and organoleptic logs.',
-        enrollments: 88
+        desc: 'Learn industry protocols for fine-tuning open-weights reasoning models with LoRA/QLoRA, building semantic vector indexes, and deploying high-throughput inference.',
+        enrollments: 240
       }
     ];
 

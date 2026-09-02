@@ -14,7 +14,6 @@ import {
   Search,
   BookOpen,
   BarChart3,
-  Handshake,
   CheckSquare,
   BookmarkCheck
 } from 'lucide-react';
@@ -49,8 +48,6 @@ const Sidebar = () => {
     { name: 'Institution Home', path: '/academia', icon: Home },
     { name: 'Student Directory', path: '/academia/students', icon: Users },
     { name: 'Placement Analytics', path: '/academia/analytics', icon: BarChart3 },
-    { name: 'Collaboration Hub', path: '/academia/collabs', icon: Handshake },
-    { name: 'Faculty Opportunities', path: '/academia/faculty', icon: BookOpen },
     { name: 'Approve & Verify', path: '/academia/verify', icon: CheckSquare },
   ];
 

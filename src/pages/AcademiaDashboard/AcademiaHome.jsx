@@ -34,16 +34,16 @@ const AcademiaHome = () => {
 
   // 2. Student Domain Distribution Data
   const getDomainData = () => {
-    const domains = { 'Ayurveda': 0, 'Homeopathy': 0, 'Sowa Rigpa': 0, 'Informatics & Biotech': 0 };
+    const domains = { 'Computer Science': 0, 'Data Science & AI': 0, 'Electronics & Electrical': 0, 'Mechanical & Automation': 0 };
     students.forEach(s => {
-      if (s.education.degree.includes('BAMS') || s.education.degree.includes('MD in Ayurveda')) {
-        domains['Ayurveda'] += 1;
-      } else if (s.education.degree.includes('BHMS') || s.education.degree.includes('MD (Homoeopathy)')) {
-        domains['Homeopathy'] += 1;
-      } else if (s.education.degree.includes('BSRMS')) {
-        domains['Sowa Rigpa'] += 1;
+      if (s.education.degree.includes('Computer Science') || s.education.degree.includes('Software')) {
+        domains['Computer Science'] += 1;
+      } else if (s.education.degree.includes('Data Science') || s.education.degree.includes('Artificial Intelligence')) {
+        domains['Data Science & AI'] += 1;
+      } else if (s.education.degree.includes('Electrical') || s.education.degree.includes('Electronics')) {
+        domains['Electronics & Electrical'] += 1;
       } else {
-        domains['Informatics & Biotech'] += 1;
+        domains['Mechanical & Automation'] += 1;
       }
     });
 
@@ -56,7 +56,7 @@ const AcademiaHome = () => {
   const domainChartData = getDomainData();
 
   // Colors for Pie Chart
-  const COLORS = ['#d97706', '#2563eb', '#8b5cf6', '#10b981'];
+  const COLORS = ['#4f46e5', '#06b6d4', '#10b981', '#f59e0b'];
 
   return (
     <div className="space-y-8">
@@ -64,22 +64,22 @@ const AcademiaHome = () => {
       <div className="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 rounded-2xl p-6 md:p-8 text-white border border-slate-800 shadow-lg">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div className="space-y-2">
-            <span className="text-xs font-semibold tracking-wider text-amber-400 uppercase">Academic Admin Sandbox</span>
+            <span className="text-xs font-semibold tracking-wider text-amber-400 uppercase">Engineering Placement & Training Office</span>
             <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight">{currentUser.name}</h2>
             <p className="text-slate-300 text-xs md:text-sm">
-              Logged in as {currentUser.adminName}. Audit student metrics, approve certified skills, and invite industry partners.
+              Logged in as {currentUser.adminName}. Audit engineering student metrics, approve certified skills, and review recruiter hiring readiness.
             </p>
           </div>
           <div className="px-4 py-2 bg-indigo-500/10 border border-indigo-500/25 rounded-lg text-indigo-400 text-xs font-bold uppercase tracking-wider">
-            Placement Cell
+            Campus Placement Cell
           </div>
         </div>
       </div>
 
       {/* KPI Stats Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <StatCard title="Total Students" value={totalStudents} icon={Users} color="blue" description="Enrolled in Ayush programs" />
-        <StatCard title="Partnered Corporates" value={collaborations.length} icon={Briefcase} color="purple" description="Signed Active MoUs" />
+        <StatCard title="Total Students" value={totalStudents} icon={Users} color="blue" description="Enrolled engineering candidates" />
+        <StatCard title="Active Recruiters" value={companies?.length || 6} icon={Briefcase} color="purple" description="Campus hiring tech firms" />
         <StatCard title="Placement Rate" value={`${placementRate}%`} icon={Award} color="emerald" description="Ready & placed status" />
         <StatCard title="Pending Verifications" value={pendingCerts.length} icon={CheckSquare} color="amber" description="Student certificates awaiting approval" />
       </div>
@@ -90,8 +90,8 @@ const AcademiaHome = () => {
         {/* Domain Distribution Pie Chart (Col Span 3) */}
         <div className="lg:col-span-3 bg-white rounded-2xl border border-slate-200 p-6 shadow-xs space-y-4">
           <div>
-            <h3 className="font-bold text-sm text-slate-800">Student Enrollment Domain Distribution</h3>
-            <p className="text-[10px] text-slate-400">Proportional enrollment across Ayurvedic, Homeopathic, and Biotech minors</p>
+            <h3 className="font-bold text-sm text-slate-800">Engineering Branch Enrollment Distribution</h3>
+            <p className="text-[10px] text-slate-400">Proportional enrollment across Computer Science, AI/Data Science, Electronics, and Mechanical</p>
           </div>
           <div className="h-64 w-full flex items-center justify-center">
             <ResponsiveContainer width="100%" height="100%">

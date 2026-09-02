@@ -25,14 +25,14 @@ const IndustryProfile = () => {
   };
 
   const sectors = [
-    'Ayush / Wellness',
-    'R&D / Ayurveda',
-    'Ayush Informatics',
-    'Clinical / Therapeutics',
-    'FMCG / Health',
-    'Homeopathy Manufacturing',
-    'Siddha Formulations',
-    'Yoga Instruction & Wellness'
+    'Software & Cloud Infrastructure',
+    'AI & Enterprise Distributed Systems',
+    'Semiconductor, AI & GPU Acceleration',
+    'Embedded Systems & Wireless SoC',
+    'Enterprise Architecture & Applied AI',
+    'Cloud Engineering & Digital Transformation',
+    'Fintech & Quantitative Engineering',
+    'Robotics & Autonomous Systems'
   ];
 
   return (

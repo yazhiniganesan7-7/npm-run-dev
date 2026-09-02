@@ -18,10 +18,11 @@ const AcademiaStudents = () => {
     
     let matchesDegree = true;
     if (degreeFilter !== 'All') {
-      if (degreeFilter === 'BAMS') matchesDegree = student.education.degree.includes('BAMS');
-      else if (degreeFilter === 'MD') matchesDegree = student.education.degree.includes('MD');
-      else if (degreeFilter === 'BHMS') matchesDegree = student.education.degree.includes('BHMS');
-      else if (degreeFilter === 'BSRMS') matchesDegree = student.education.degree.includes('BSRMS');
+      if (degreeFilter === 'CSE') matchesDegree = student.education.degree.includes('Computer Science');
+      else if (degreeFilter === 'AI_DS') matchesDegree = student.education.degree.includes('Data Science') || student.education.degree.includes('Artificial Intelligence');
+      else if (degreeFilter === 'EEE') matchesDegree = student.education.degree.includes('Electrical');
+      else if (degreeFilter === 'MECH') matchesDegree = student.education.degree.includes('Mechanical');
+      else if (degreeFilter === 'MTECH') matchesDegree = student.education.degree.includes('M.Tech');
     }
 
     return matchesSearch && matchesDegree;
@@ -33,7 +34,7 @@ const AcademiaStudents = () => {
       {/* Title */}
       <div className="border-b border-slate-200 pb-4">
         <h2 className="text-2xl font-bold text-slate-900 tracking-tight">Student Directory</h2>
-        <p className="text-sm text-slate-500">Monitor and search academic records, verified skills, and job readiness status across departments.</p>
+        <p className="text-sm text-slate-500">Monitor and search academic records, verified skills, and job readiness status across engineering departments.</p>
       </div>
 
       {/* Filters */}
@@ -58,11 +59,12 @@ const AcademiaStudents = () => {
             onChange={(e) => setDegreeFilter(e.target.value)}
             className="w-full border border-slate-300 rounded-lg p-2.5 bg-slate-50 text-slate-800 text-xs focus:ring-2 focus:ring-indigo-500 focus:outline-none font-semibold"
           >
-            <option value="All">All Degrees</option>
-            <option value="BAMS">Ayurmed (BAMS)</option>
-            <option value="MD">Postgraduate MD</option>
-            <option value="BHMS">Homeopathy (BHMS)</option>
-            <option value="BSRMS">Sowa Rigpa (BSRMS)</option>
+            <option value="All">All Engineering Degrees</option>
+            <option value="CSE">B.Tech Computer Science</option>
+            <option value="AI_DS">B.Tech Data Science & AI</option>
+            <option value="EEE">B.Tech Electrical & Electronics</option>
+            <option value="MECH">B.Tech Mechanical & Automation</option>
+            <option value="MTECH">M.Tech Software Systems</option>
           </select>
         </div>
 

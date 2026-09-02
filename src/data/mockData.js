@@ -1,605 +1,472 @@
-// Mock Data for Portal for Academia - Industry Collaboration (SIH26044)
+// Mock Data for Engineering Portal for Academia - Industry Collaboration
 
-// 1. Skill Taxonomy (40 skills across categories)
+// 1. Skill Taxonomy (Engineering & Tech Centric)
 export const SKILL_TAXONOMY = [
-  // AYUSH & Domain Specific
-  { id: 'sk-1', name: 'Ayurvedic Pharmacology', category: 'Domain' },
-  { id: 'sk-2', name: 'Herbal Formulation', category: 'Domain' },
-  { id: 'sk-3', name: 'Panchakarma Therapy', category: 'Domain' },
-  { id: 'sk-4', name: 'Yoga Instruction & Therapy', category: 'Domain' },
-  { id: 'sk-5', name: 'Botanical Identification', category: 'Domain' },
-  { id: 'sk-6', name: 'Drug Standardization', category: 'Domain' },
-  { id: 'sk-7', name: 'Naturopathic Diagnostics', category: 'Domain' },
-  { id: 'sk-8', name: 'Clinical Trials Coordination', category: 'Domain' },
-  { id: 'sk-9', name: 'Clinical Documentation', category: 'Domain' },
-  { id: 'sk-10', name: 'Hospital Administration', category: 'Domain' },
-  { id: 'sk-11', name: 'Dietetics & Nutrition', category: 'Domain' },
-  { id: 'sk-12', name: 'Pharmacognosy', category: 'Domain' },
-  { id: 'sk-13', name: 'Phytochemistry', category: 'Domain' },
-  { id: 'sk-14', name: 'Ayush Informatics', category: 'Domain' },
+  // Core Software Engineering & Computer Science
+  { id: 'sk-1', name: 'Data Structures & Algorithms', category: 'Technical' },
+  { id: 'sk-2', name: 'React & Frontend Dev', category: 'Technical' },
+  { id: 'sk-3', name: 'Python Programming', category: 'Technical' },
+  { id: 'sk-4', name: 'System Design & Distributed Systems', category: 'Technical' },
+  { id: 'sk-5', name: 'SQL & Database Management', category: 'Technical' },
+  { id: 'sk-6', name: 'API Development & Microservices', category: 'Technical' },
+  { id: 'sk-7', name: 'Cloud Computing (AWS/GCP)', category: 'Technical' },
+  { id: 'sk-8', name: 'DevOps & CI/CD Pipelines', category: 'Technical' },
+  { id: 'sk-9', name: 'Containerization (Docker & Kubernetes)', category: 'Technical' },
+  { id: 'sk-10', name: 'Cybersecurity & Network Protocols', category: 'Technical' },
 
-  // Technical Skills
-  { id: 'sk-15', name: 'Data Analysis', category: 'Technical' },
-  { id: 'sk-16', name: 'React & Frontend Dev', category: 'Technical' },
-  { id: 'sk-17', name: 'Python Programming', category: 'Technical' },
-  { id: 'sk-18', name: 'SQL & Database Management', category: 'Technical' },
-  { id: 'sk-19', name: 'Machine Learning', category: 'Technical' },
-  { id: 'sk-20', name: 'Cloud Computing (AWS/GCP)', category: 'Technical' },
-  { id: 'sk-21', name: 'Bioinformatics Tools', category: 'Technical' },
-  { id: 'sk-22', name: 'Statistical Analysis (SPSS/R)', category: 'Technical' },
-  { id: 'sk-23', name: 'LIMS (Lab Information Systems)', category: 'Technical' },
-  { id: 'sk-24', name: 'API Development', category: 'Technical' },
+  // AI, Data Science & Machine Learning
+  { id: 'sk-11', name: 'Machine Learning', category: 'Technical' },
+  { id: 'sk-12', name: 'Deep Learning (PyTorch/TensorFlow)', category: 'Technical' },
+  { id: 'sk-13', name: 'Data Analysis & Visualization', category: 'Technical' },
+  { id: 'sk-14', name: 'Large Language Models & GenAI', category: 'Technical' },
+  { id: 'sk-15', name: 'Big Data Processing (Kafka/Spark)', category: 'Technical' },
+  { id: 'sk-16', name: 'Computer Vision', category: 'Technical' },
+  { id: 'sk-17', name: 'Natural Language Processing (NLP)', category: 'Technical' },
 
-  // Professional & Soft Skills
-  { id: 'sk-25', name: 'Scientific Writing & Communication', category: 'Professional' },
-  { id: 'sk-26', name: 'Project Management', category: 'Professional' },
-  { id: 'sk-27', name: 'Research Methodology', category: 'Professional' },
-  { id: 'sk-28', name: 'Team Leadership', category: 'Professional' },
-  { id: 'sk-29', name: 'Problem Solving', category: 'Professional' },
-  { id: 'sk-30', name: 'Presentation Skills', category: 'Professional' },
-  { id: 'sk-31', name: 'Regulatory Compliance', category: 'Professional' },
-  { id: 'sk-32', name: 'Quality Assurance', category: 'Professional' },
-  { id: 'sk-33', name: 'IPR & Patent Filing', category: 'Professional' },
-  { id: 'sk-34', name: 'Interpersonal Skills', category: 'Professional' },
+  // Core Engineering, Hardware & Embedded
+  { id: 'sk-18', name: 'Embedded Systems & RTOS', category: 'Domain' },
+  { id: 'sk-19', name: 'IoT & Sensor Networks', category: 'Domain' },
+  { id: 'sk-20', name: 'VLSI & Digital System Design', category: 'Domain' },
+  { id: 'sk-21', name: 'Robotics & Control Systems', category: 'Domain' },
+  { id: 'sk-22', name: 'CAD Modeling & FEA Simulation', category: 'Domain' },
+  { id: 'sk-23', name: 'Signal Processing', category: 'Domain' },
+  { id: 'sk-24', name: 'Automotive Electronics & CAN Bus', category: 'Domain' },
 
-  // Additional Health/IT crossover
-  { id: 'sk-35', name: 'Telemedicine Systems', category: 'Technical' },
-  { id: 'sk-36', name: 'Medical Devices QA', category: 'Technical' },
-  { id: 'sk-37', name: 'Healthcare Analytics', category: 'Technical' },
-  { id: 'sk-38', name: 'Public Health Research', category: 'Domain' },
-  { id: 'sk-39', name: 'Digital Marketing (Wellness)', category: 'Professional' },
-  { id: 'sk-40', name: 'Community Outreach', category: 'Professional' },
+  // Professional, Soft Skills & Workflow
+  { id: 'sk-25', name: 'Problem Solving & Analytical Thinking', category: 'Professional' },
+  { id: 'sk-26', name: 'Agile & Scrum Methodologies', category: 'Professional' },
+  { id: 'sk-27', name: 'Git & Open Source Workflow', category: 'Professional' },
+  { id: 'sk-28', name: 'System Architecture & RFCs', category: 'Professional' },
+  { id: 'sk-29', name: 'Unit Testing & Quality Assurance', category: 'Professional' },
+  { id: 'sk-30', name: 'Technical Documentation', category: 'Professional' },
+  { id: 'sk-31', name: 'Team Leadership', category: 'Professional' },
+  { id: 'sk-32', name: 'Presentation & Communication Skills', category: 'Professional' },
+  { id: 'sk-33', name: 'Project Management', category: 'Professional' },
+  { id: 'sk-34', name: 'Code Review & Clean Code Standards', category: 'Professional' },
 ];
 
 // Helper to get skill object by name
 export const getSkillByName = (name) => SKILL_TAXONOMY.find(s => s.name === name);
 
-// 2. Mock Academic Institutions
+// 2. Mock Academic Institutions (Only Engineering Colleges & IITs)
 export const MOCK_INSTITUTIONS = [
   {
     id: 'inst-1',
-    name: 'National Institute of Ayurveda (NIA)',
-    location: 'Jaipur, Rajasthan',
-    code: 'NIAJ-302002',
-    partneredCompanies: 18,
-    studentCount: 450,
-    placementRate: 88,
-    avgStipend: 18500,
-    contactEmail: 'placement@nia.nic.in',
-    logoColor: 'from-amber-600 to-yellow-500',
+    name: 'Indian Institute of Technology Delhi (IIT Delhi)',
+    location: 'Hauz Khas, New Delhi',
+    code: 'IITD-110016',
+    partneredCompanies: 42,
+    studentCount: 3200,
+    placementRate: 96,
+    avgStipend: 85000,
+    contactEmail: 'tnp@admin.iitd.ac.in',
+    logoColor: 'from-indigo-600 to-blue-500',
   },
   {
     id: 'inst-2',
-    name: 'All India Institute of Ayurveda (AIIA)',
-    location: 'New Delhi, Delhi',
-    code: 'AIIAD-110076',
-    partneredCompanies: 24,
-    studentCount: 380,
-    placementRate: 92,
-    avgStipend: 22000,
-    contactEmail: 'collaboration@aiia.gov.in',
-    logoColor: 'from-teal-600 to-emerald-500',
+    name: 'Indian Institute of Technology Bombay (IIT Bombay)',
+    location: 'Powai, Mumbai, Maharashtra',
+    code: 'IITB-400076',
+    partneredCompanies: 48,
+    studentCount: 3500,
+    placementRate: 98,
+    avgStipend: 95000,
+    contactEmail: 'placements@iitb.ac.in',
+    logoColor: 'from-blue-600 to-cyan-500',
   },
   {
     id: 'inst-3',
-    name: 'National Institute of Homoeopathy (NIH)',
-    location: 'Kolkata, West Bengal',
-    code: 'NIHK-700091',
-    partneredCompanies: 12,
-    studentCount: 310,
-    placementRate: 82,
-    avgStipend: 15000,
-    contactEmail: 'placement@nih.nic.in',
-    logoColor: 'from-blue-600 to-indigo-500',
+    name: 'Indian Institute of Technology Madras (IIT Madras)',
+    location: 'Chennai, Tamil Nadu',
+    code: 'IITM-600036',
+    partneredCompanies: 45,
+    studentCount: 3300,
+    placementRate: 97,
+    avgStipend: 90000,
+    contactEmail: 'placement@iitm.ac.in',
+    logoColor: 'from-emerald-600 to-teal-500',
   },
   {
     id: 'inst-4',
-    name: 'National Institute of Sowa Rigpa (NISR)',
-    location: 'Leh, Ladakh',
-    code: 'NISRL-194101',
-    partneredCompanies: 8,
-    studentCount: 120,
-    placementRate: 75,
-    avgStipend: 14000,
-    contactEmail: 'admin@nisr.gov.in',
-    logoColor: 'from-purple-600 to-pink-500',
+    name: 'Indian Institute of Technology Kharagpur (IIT Kharagpur)',
+    location: 'Kharagpur, West Bengal',
+    code: 'IITKGP-721302',
+    partneredCompanies: 38,
+    studentCount: 3900,
+    placementRate: 94,
+    avgStipend: 80000,
+    contactEmail: 'tnp@hijli.iitkgp.ac.in',
+    logoColor: 'from-amber-600 to-orange-500',
+  },
+  {
+    id: 'inst-5',
+    name: 'National Institute of Technology Trichy (NIT Trichy)',
+    location: 'Tiruchirappalli, Tamil Nadu',
+    code: 'NITT-620015',
+    partneredCompanies: 32,
+    studentCount: 2800,
+    placementRate: 91,
+    avgStipend: 65000,
+    contactEmail: 'placement@nitt.edu',
+    logoColor: 'from-purple-600 to-indigo-500',
+  },
+  {
+    id: 'inst-6',
+    name: 'Birla Institute of Technology and Science, Pilani (BITS Pilani)',
+    location: 'Pilani, Rajasthan',
+    code: 'BITS-333031',
+    partneredCompanies: 36,
+    studentCount: 2900,
+    placementRate: 95,
+    avgStipend: 75000,
+    contactEmail: 'placement@pilani.bits-pilani.ac.in',
+    logoColor: 'from-rose-600 to-pink-500',
   }
 ];
 
-// 3. Mock Students
+// 3. Mock Engineering Students
 export const MOCK_STUDENTS = [
   {
     id: 'std-1',
     name: 'Aarav Sharma',
-    email: 'aarav.sharma@nia.nic.in',
+    email: 'aarav.sharma@iitd.ac.in',
     phone: '+91 98765 43210',
     institutionId: 'inst-1',
+    institutionName: 'Indian Institute of Technology Delhi (IIT Delhi)',
     avatar: 'AS',
-    targetRole: 'Ayurvedic Formulator & Clinical Researcher',
+    targetRole: 'Full-Stack Software Development Engineer',
     skills: [
-      'Ayurvedic Pharmacology',
-      'Herbal Formulation',
-      'Clinical Documentation',
-      'Research Methodology',
-      'Scientific Writing & Communication',
-      'Presentation Skills',
-      'Data Analysis'
+      'Data Structures & Algorithms',
+      'React & Frontend Dev',
+      'Python Programming',
+      'SQL & Database Management',
+      'Git & Open Source Workflow',
+      'Problem Solving & Analytical Thinking',
+      'Unit Testing & Quality Assurance'
     ],
     education: {
-      degree: 'BAMS (Bachelor of Ayurvedic Medicine and Surgery)',
+      degree: 'B.Tech in Computer Science & Engineering',
       year: 'Final Year (4th Year)',
-      cgpa: '8.4/10.0',
+      cgpa: '8.9/10.0',
     },
     certifications: [
-      { id: 'cert-1', name: 'Advanced Herbology', issuer: 'National Botanical Research Institute', date: '2025-06', status: 'Verified' },
-      { id: 'cert-2', name: 'GCP (Good Clinical Practice) Training', issuer: 'NIDA Clinical Trials Network', date: '2025-11', status: 'Verified' },
-      { id: 'cert-3', name: 'Standardization of Ayurvedic Formulations', issuer: 'Ministry of Ayush', date: '2026-02', status: 'Pending' }
+      { id: 'cert-1', name: 'AWS Certified Cloud Practitioner', issuer: 'Amazon Web Services', date: '2025-06', status: 'Verified' },
+      { id: 'cert-2', name: 'Meta Frontend Developer Professional Certificate', issuer: 'Meta', date: '2025-11', status: 'Verified' },
+      { id: 'cert-3', name: 'Certified Kubernetes Application Developer (CKAD)', issuer: 'Linux Foundation', date: '2026-02', status: 'Pending' }
     ],
     projects: [
-      { title: 'Standardization of Ashwagandha Effervescent Tablets', desc: 'Developed a novel delivery mechanism for Ashwagandha extract and validated its shelf life using stability testing protocols.' },
-      { title: 'Clinical Audit on Panchakarma in OA', desc: 'Conducted a retrospective audit of 50 osteoarthritis patients treated with Janu Basti and compiled efficacy charts.' }
+      { title: 'Distributed Key-Value Cache with Raft Consensus', desc: 'Built a resilient, in-memory distributed store in Go using Raft consensus algorithm with partition tolerance.' },
+      { title: 'Collaborative Real-Time Code IDE', desc: 'Developed a browser-based pair programming sandbox with WebSockets, syntax highlighting, and Monaco editor.' }
     ],
     achievements: [
-      '1st Place in Ministry of Ayush Innovation Hackathon 2025',
-      'Published research paper in AYU Journal on Standardization'
+      'Knight Rank on LeetCode (2150+ Rating)',
+      'Finalist at Smart India Hackathon 2025 (Software Edition)'
     ],
-    resumeName: 'Aarav_Sharma_BAMS_Resume.pdf',
+    resumeName: 'Aarav_Sharma_IITDelhi_SWE_Resume.pdf',
     assessmentScores: {
-      'Domain Knowledge': 85,
-      'Scientific/Clinical Skills': 80,
-      'Technical/Data Skills': 65,
-      'Communication': 90,
-      'Regulatory/Compliance': 75
+      'Domain Knowledge': 92,
+      'System Architecture': 85,
+      'Technical/Data Skills': 88,
+      'Code Quality & Testing': 80,
+      'Problem Solving': 95
     }
   },
   {
     id: 'std-2',
     name: 'Priyanka Patel',
-    email: 'priyanka.patel@aiia.gov.in',
+    email: 'priyanka.patel@iitb.ac.in',
     phone: '+91 91234 56789',
     institutionId: 'inst-2',
+    institutionName: 'Indian Institute of Technology Bombay (IIT Bombay)',
     avatar: 'PP',
-    targetRole: 'Clinical Trial Coordinator',
+    targetRole: 'Machine Learning & AI Research Engineer',
     skills: [
-      'Clinical Trials Coordination',
-      'Clinical Documentation',
-      'Regulatory Compliance',
-      'Scientific Writing & Communication',
-      'Statistical Analysis (SPSS/R)',
-      'Data Analysis',
-      'Team Leadership'
+      'Machine Learning',
+      'Deep Learning (PyTorch/TensorFlow)',
+      'Python Programming',
+      'Data Analysis & Visualization',
+      'Large Language Models & GenAI',
+      'Problem Solving & Analytical Thinking',
+      'Technical Documentation'
     ],
     education: {
-      degree: 'MD in Ayurveda (Dravyaguna)',
-      year: '2nd Year Postgraduate',
-      cgpa: '9.1/10.0',
+      degree: 'B.Tech in Data Science & Artificial Intelligence',
+      year: 'Final Year (4th Year)',
+      cgpa: '9.4/10.0',
     },
     certifications: [
-      { id: 'cert-4', name: 'Clinical Trials Regulation in India', issuer: 'CDSCO', date: '2025-08', status: 'Verified' },
-      { id: 'cert-5', name: 'Ayush Informatics Certification', issuer: 'AIIA', date: '2026-01', status: 'Verified' }
+      { id: 'cert-4', name: 'Deep Learning Specialization', issuer: 'DeepLearning.AI', date: '2025-08', status: 'Verified' },
+      { id: 'cert-5', name: 'TensorFlow Developer Certificate', issuer: 'Google', date: '2026-01', status: 'Verified' }
     ],
     projects: [
-      { title: 'Efficacy Trial of Guduchi Ghan Vati', desc: 'Coordinated a randomized controlled trial assessing Guduchi Ghan Vati in improving immunologic markers.' }
+      { title: 'Multimodal Vision-Language Reasoning Agent', desc: 'Fine-tuned open-source LLMs using LoRA/QLoRA for automated architectural blueprint defect detection.' }
     ],
     achievements: [
-      'Recipient of AYUSH Junior Research Fellowship (JRF) 2025'
+      'Recipient of IIT Bombay Academic Excellence Silver Medal 2025',
+      'Co-authored paper accepted at NeurIPS Workshop on Edge AI'
     ],
-    resumeName: 'Priyanka_Patel_MD_Dravyaguna.pdf',
+    resumeName: 'Priyanka_Patel_IITB_ML_Resume.pdf',
     assessmentScores: {
-      'Domain Knowledge': 92,
-      'Scientific/Clinical Skills': 88,
-      'Technical/Data Skills': 78,
-      'Communication': 85,
-      'Regulatory/Compliance': 90
+      'Domain Knowledge': 96,
+      'System Architecture': 90,
+      'Technical/Data Skills': 94,
+      'Code Quality & Testing': 88,
+      'Problem Solving': 92
     }
   },
   {
     id: 'std-3',
     name: 'Karthik Nair',
-    email: 'karthik.nair@aiia.gov.in',
+    email: 'karthik.nair@iitm.ac.in',
     phone: '+91 94477 12345',
-    institutionId: 'inst-2',
+    institutionId: 'inst-3',
+    institutionName: 'Indian Institute of Technology Madras (IIT Madras)',
     avatar: 'KN',
-    targetRole: 'Ayurvedic Wellness Consultant',
+    targetRole: 'Embedded Systems & Firmware Engineer',
     skills: [
-      'Yoga Instruction & Therapy',
-      'Panchakarma Therapy',
-      'Dietetics & Nutrition',
-      'Communication',
-      'Telemedicine Systems',
-      'Presentation Skills'
+      'Embedded Systems & RTOS',
+      'IoT & Sensor Networks',
+      'Robotics & Control Systems',
+      'Signal Processing',
+      'Python Programming',
+      'Problem Solving & Analytical Thinking'
     ],
     education: {
-      degree: 'BAMS',
+      degree: 'B.Tech in Electrical & Electronics Engineering',
       year: '3rd Year',
-      cgpa: '7.8/10.0',
+      cgpa: '8.3/10.0',
     },
     certifications: [
-      { id: 'cert-6', name: 'Certified Yoga Professional (Level 2)', issuer: 'Yoga Certification Board (YCB)', date: '2025-05', status: 'Verified' },
-      { id: 'cert-7', name: 'Panchakarma Assistant Training', issuer: 'Aravinda Hospital', date: '2025-10', status: 'Pending' }
+      { id: 'cert-6', name: 'ARM Cortex-M Microcontroller Programming', issuer: 'STMicroelectronics', date: '2025-05', status: 'Verified' },
+      { id: 'cert-7', name: 'RTOS Kernel Architecture', issuer: 'FreeRTOS Foundation', date: '2025-10', status: 'Pending' }
     ],
     projects: [
-      { title: 'Integrating Hatha Yoga in Diabetes Management', desc: 'Designed a 12-week yoga protocol and tracked fasting blood sugar levels across 20 participants.' }
+      { title: 'Autonomous Quadcopter Flight Controller', desc: 'Designed custom PCB and implemented PID stabilization in C with IMU sensor fusion running FreeRTOS.' }
     ],
     achievements: [
-      'Best Yoga Practitioner Award - Delhi State level 2025'
+      '1st Place at IIT Madras Shaastra Robotics Competition 2025'
     ],
-    resumeName: 'Karthik_Nair_Wellness_BAMS.pdf',
+    resumeName: 'Karthik_Nair_IITM_Embedded.pdf',
     assessmentScores: {
-      'Domain Knowledge': 75,
-      'Scientific/Clinical Skills': 70,
-      'Technical/Data Skills': 55,
-      'Communication': 88,
-      'Regulatory/Compliance': 60
+      'Domain Knowledge': 85,
+      'System Architecture': 78,
+      'Technical/Data Skills': 80,
+      'Code Quality & Testing': 75,
+      'Problem Solving': 88
     }
   },
   {
     id: 'std-4',
     name: 'Anjali Das',
-    email: 'anjali.das@nih.nic.in',
+    email: 'anjali.das@iitkgp.ac.in',
     phone: '+91 88877 66554',
-    institutionId: 'inst-3',
+    institutionId: 'inst-4',
+    institutionName: 'Indian Institute of Technology Kharagpur (IIT Kharagpur)',
     avatar: 'AD',
-    targetRole: 'Homeopathic Pharmacologist',
+    targetRole: 'Cloud & DevOps Solutions Architect',
     skills: [
-      'Drug Standardization',
-      'Clinical Documentation',
-      'Pharmacognosy',
-      'Research Methodology',
-      'Scientific Writing & Communication',
+      'Cloud Computing (AWS/GCP)',
+      'DevOps & CI/CD Pipelines',
+      'Containerization (Docker & Kubernetes)',
+      'System Design & Distributed Systems',
+      'Python Programming',
       'SQL & Database Management'
     ],
     education: {
-      degree: 'BHMS (Bachelor of Homoeopathic Medicine and Surgery)',
-      year: 'Final Year',
-      cgpa: '8.2/10.0',
+      degree: 'M.Tech in Software Engineering & Cloud Systems',
+      year: '2nd Year Postgraduate',
+      cgpa: '9.0/10.0',
     },
     certifications: [
-      { id: 'cert-8', name: 'Homoeopathic Pharmacopoeia Standards', issuer: 'HPL Ghaziabad', date: '2025-09', status: 'Verified' }
+      { id: 'cert-8', name: 'AWS Certified Solutions Architect - Associate', issuer: 'Amazon Web Services', date: '2025-09', status: 'Verified' }
     ],
     projects: [
-      { title: 'Efficacy of Ultra-diluted Arnica on Wound Healing', desc: 'Conducted an in-vitro assay examining fibroblasts migration in wound models treated with Arnica 30C.' }
+      { title: 'Automated Multi-Region Canary Deployment Pipeline', desc: 'Engineered GitOps workflow with ArgoCD, Terraform, and Kubernetes with zero-downtime rollbacks.' }
     ],
     achievements: [
-      'Awarded NIH Scholarship for Academic Excellence 2024, 2025'
+      'Organized DevopsDays IIT Kharagpur 2025'
     ],
-    resumeName: 'Anjali_Das_BHMS_Resume.pdf',
+    resumeName: 'Anjali_Das_IITKGP_Cloud.pdf',
     assessmentScores: {
-      'Domain Knowledge': 80,
-      'Scientific/Clinical Skills': 85,
-      'Technical/Data Skills': 60,
-      'Communication': 78,
-      'Regulatory/Compliance': 80
+      'Domain Knowledge': 90,
+      'System Architecture': 92,
+      'Technical/Data Skills': 89,
+      'Code Quality & Testing': 86,
+      'Problem Solving': 88
     }
   },
   {
     id: 'std-5',
     name: 'Tenzin Gyatso',
-    email: 'tenzin.g@nisr.gov.in',
+    email: 'tenzin.g@nitt.edu',
     phone: '+91 70011 22334',
-    institutionId: 'inst-4',
+    institutionId: 'inst-5',
+    institutionName: 'National Institute of Technology Trichy (NIT Trichy)',
     avatar: 'TG',
-    targetRole: 'Sowa Rigpa Research Officer',
+    targetRole: 'Robotics & Automation Specialist',
     skills: [
-      'Botanical Identification',
-      'Herbal Formulation',
-      'Dietetics & Nutrition',
-      'Community Outreach',
-      'Scientific Writing & Communication',
-      'Research Methodology'
+      'Robotics & Control Systems',
+      'CAD Modeling & FEA Simulation',
+      'IoT & Sensor Networks',
+      'Python Programming',
+      'Problem Solving & Analytical Thinking',
+      'Team Leadership'
     ],
     education: {
-      degree: 'BSRMS (Bachelor of Sowa Rigpa Medicine and Surgery)',
+      degree: 'B.Tech in Mechanical & Automation Engineering',
       year: 'Final Year',
-      cgpa: '8.5/10.0',
+      cgpa: '8.6/10.0',
     },
     certifications: [
-      { id: 'cert-9', name: 'Himalayan Medicinal Herbs Identification', issuer: 'National Research Institute for Sowa Rigpa', date: '2025-07', status: 'Verified' }
+      { id: 'cert-9', name: 'ROS2 (Robot Operating System) Developer', issuer: 'Open Robotics', date: '2025-07', status: 'Verified' }
     ],
     projects: [
-      { title: 'Taxonomic Mapping of Altitude-specific Rhodiola', desc: 'Mapped the distribution of Rhodiola species across the Leh district and documented local traditional formulations.' }
+      { title: '6-DOF Collaborative Robotic Arm for Assembly', desc: 'Designed inverse kinematic trajectory planner with obstacle avoidance using stereo vision.' }
     ],
     achievements: [
-      'Authored field guide for Sowa Rigpa Medicinal Plants of Ladakh'
+      'Team Captain, NIT Trichy Rover Society at University Rover Challenge'
     ],
-    resumeName: 'Tenzin_Gyatso_SowaRigpa.pdf',
+    resumeName: 'Tenzin_Gyatso_NITT_Robotics.pdf',
     assessmentScores: {
-      'Domain Knowledge': 90,
-      'Scientific/Clinical Skills': 80,
-      'Technical/Data Skills': 50,
-      'Communication': 82,
-      'Regulatory/Compliance': 70
+      'Domain Knowledge': 88,
+      'System Architecture': 84,
+      'Technical/Data Skills': 78,
+      'Code Quality & Testing': 80,
+      'Problem Solving': 86
     }
   },
   {
     id: 'std-6',
     name: 'Rohit Verma',
-    email: 'rohit.verma@nia.nic.in',
+    email: 'rohit.verma@pilani.bits-pilani.ac.in',
     phone: '+91 99887 76655',
-    institutionId: 'inst-1',
+    institutionId: 'inst-6',
+    institutionName: 'Birla Institute of Technology and Science, Pilani (BITS Pilani)',
     avatar: 'RV',
-    targetRole: 'Ayush Health Informatician',
+    targetRole: 'Backend & High-Throughput Distributed Systems Engineer',
     skills: [
-      'Ayush Informatics',
-      'React & Frontend Dev',
-      'Data Analysis',
+      'Data Structures & Algorithms',
+      'API Development & Microservices',
+      'System Design & Distributed Systems',
       'SQL & Database Management',
-      'Scientific Writing & Communication',
-      'Telemedicine Systems',
-      'Healthcare Analytics'
+      'Big Data Processing (Kafka/Spark)',
+      'Cloud Computing (AWS/GCP)',
+      'Containerization (Docker & Kubernetes)'
     ],
     education: {
-      degree: 'BAMS + PG Diploma in Medical Informatics',
-      year: 'Postgraduate Student',
-      cgpa: '8.9/10.0',
+      degree: 'B.Tech in Computer Science & Engineering',
+      year: 'Final Year',
+      cgpa: '9.2/10.0',
     },
     certifications: [
-      { id: 'cert-10', name: 'HL7 Standards & FHIR Basics', issuer: 'HL7 India', date: '2025-12', status: 'Verified' },
-      { id: 'cert-11', name: 'Advanced SQL Certification', issuer: 'LeetCode Certified', date: '2025-04', status: 'Pending' }
+      { id: 'cert-10', name: 'Confluent Certified Developer for Apache Kafka', issuer: 'Confluent', date: '2025-12', status: 'Verified' },
+      { id: 'cert-11', name: 'Distributed Systems Specialization', issuer: 'Coursera', date: '2025-04', status: 'Verified' }
     ],
     projects: [
-      { title: 'Ayurvedic Prakriti Assessment App', desc: 'Developed a React Native application with a rule engine to calculate human constitution (Prakriti) based on classical texts.' }
+      { title: 'Ultra-Low Latency Order Matching Engine', desc: 'Architected an asynchronous matching engine in Rust processing 150,000 orders/sec with p99 latency < 2ms.' }
     ],
     achievements: [
-      'Implemented Electronic Medical Record system for the college outpatient unit'
+      'Winner, BITS Pilani Annual Hackathon 2025',
+      'Selected for Google Summer of Code (GSoC) 2025'
     ],
-    resumeName: 'Rohit_Verma_AyushInformatics.pdf',
+    resumeName: 'Rohit_Verma_BITS_Systems.pdf',
     assessmentScores: {
-      'Domain Knowledge': 75,
-      'Scientific/Clinical Skills': 68,
-      'Technical/Data Skills': 92,
-      'Communication': 80,
-      'Regulatory/Compliance': 85
+      'Domain Knowledge': 94,
+      'System Architecture': 96,
+      'Technical/Data Skills': 95,
+      'Code Quality & Testing': 90,
+      'Problem Solving': 93
     }
-  },
-  {
-    id: 'std-7',
-    name: 'Siddharth Roy',
-    email: 'sid.roy@nih.nic.in',
-    phone: '+91 98300 12345',
-    institutionId: 'inst-3',
-    avatar: 'SR',
-    targetRole: 'Homeopathic Clinical Researcher',
-    skills: ['Clinical Trials Coordination', 'Research Methodology', 'Data Analysis', 'Statistical Analysis (SPSS/R)', 'Scientific Writing & Communication'],
-    education: { degree: 'MD (Homoeopathy)', year: '1st Year PG', cgpa: '8.1/10.0' },
-    certifications: [{ id: 'cert-12', name: 'Biostatistics in Clinical Research', issuer: 'ICMR', date: '2025-10', status: 'Verified' }],
-    projects: [{ title: 'Statistical Meta-Analysis of Homoeopathy in Atopic Dermatitis', desc: 'Analyzed clinical data from 8 national clinics using SPSS.' }],
-    achievements: ['Gold Medalist in BHMS Pathology block'],
-    resumeName: 'Siddharth_Roy_MD.pdf',
-    assessmentScores: { 'Domain Knowledge': 82, 'Scientific/Clinical Skills': 80, 'Technical/Data Skills': 85, 'Communication': 75, 'Regulatory/Compliance': 78 }
-  },
-  {
-    id: 'std-8',
-    name: 'Meera Iyer',
-    email: 'meera.iyer@aiia.gov.in',
-    phone: '+91 81234 98765',
-    institutionId: 'inst-2',
-    avatar: 'MI',
-    targetRole: 'Quality Assurance Manager',
-    skills: ['Quality Assurance', 'Regulatory Compliance', 'Drug Standardization', 'Phytochemistry', 'Pharmacognosy', 'Project Management'],
-    education: { degree: 'MD in Ayurveda (Rasa Shastra)', year: '3rd Year PG', cgpa: '9.3/10.0' },
-    certifications: [{ id: 'cert-13', name: 'ISO 22716 Cosmetics GMP Certification', issuer: 'SGS India', date: '2025-11', status: 'Verified' }],
-    projects: [{ title: 'Heavy Metal Profiling and Standard Operating Procedures for Bhasmas', desc: 'Defined validation frameworks using ICP-MS to prove toxicity levels are within classical bounds.' }],
-    achievements: ['Patented a standardized method for rapid incineration testing of Rasa preparations'],
-    resumeName: 'Meera_Iyer_RasaShastra_QA.pdf',
-    assessmentScores: { 'Domain Knowledge': 95, 'Scientific/Clinical Skills': 92, 'Technical/Data Skills': 70, 'Communication': 88, 'Regulatory/Compliance': 94 }
-  },
-  {
-    id: 'std-9',
-    name: 'Aditya Sen',
-    email: 'aditya.sen@nih.nic.in',
-    phone: '+91 90022 44668',
-    institutionId: 'inst-3',
-    avatar: 'AS',
-    targetRole: 'Homeopathic Pharmacist',
-    skills: ['Drug Standardization', 'Pharmacognosy', 'Regulatory Compliance', 'Quality Assurance', 'Botanical Identification'],
-    education: { degree: 'BHMS', year: 'Final Year', cgpa: '7.5/10.0' },
-    certifications: [{ id: 'cert-14', name: 'Pharmacognostical Techniques', issuer: 'NIH', date: '2025-06', status: 'Verified' }],
-    projects: [{ title: 'Botanical Authentication of Calendula Officinalis Raw Stocks', desc: 'Created reference microscopical slices to detect common adulterants.' }],
-    achievements: [],
-    resumeName: 'Aditya_Sen_BHMS.pdf',
-    assessmentScores: { 'Domain Knowledge': 78, 'Scientific/Clinical Skills': 74, 'Technical/Data Skills': 50, 'Communication': 70, 'Regulatory/Compliance': 82 }
-  },
-  {
-    id: 'std-10',
-    name: 'Sonam Wangchuk',
-    email: 'sonam.w@nisr.gov.in',
-    phone: '+91 70066 55443',
-    institutionId: 'inst-4',
-    avatar: 'SW',
-    targetRole: 'Herbal Supply Chain Analyst',
-    skills: ['Botanical Identification', 'Herbal Formulation', 'Project Management', 'Data Analysis', 'IPR & Patent Filing'],
-    education: { degree: 'BSRMS', year: 'Internship Phase', cgpa: '8.0/10.0' },
-    certifications: [{ id: 'cert-15', name: 'IPR in Traditional Medicine', issuer: 'WIPO', date: '2025-10', status: 'Pending' }],
-    projects: [{ title: 'Geographical Origin Tracking of Ladakh Seabuckthorn', desc: 'Designed a simple inventory spreadsheet system mapping collection locations for wild seabuckthorn berries.' }],
-    achievements: ['Organized the Himalayan Local Healers conference in Leh, 2025'],
-    resumeName: 'Sonam_Wangchuk_Sowa_Rigpa.pdf',
-    assessmentScores: { 'Domain Knowledge': 85, 'Scientific/Clinical Skills': 75, 'Technical/Data Skills': 65, 'Communication': 80, 'Regulatory/Compliance': 72 }
-  },
-  {
-    id: 'std-11',
-    name: 'Vikram Choudhary',
-    email: 'vikram.c@nia.nic.in',
-    phone: '+91 97711 00223',
-    institutionId: 'inst-1',
-    avatar: 'VC',
-    targetRole: 'Ayurvedic Clinical Consultant',
-    skills: ['Ayurvedic Pharmacology', 'Panchakarma Therapy', 'Dietetics & Nutrition', 'Communication', 'Interpersonal Skills'],
-    education: { degree: 'BAMS', year: 'Final Year', cgpa: '7.9/10.0' },
-    certifications: [],
-    projects: [{ title: 'Pathya (Diet) in Chronic Inflammatory Bowel Disease', desc: 'Monitored dietary adjustments and symptomatology in a 30-case study.' }],
-    achievements: [],
-    resumeName: 'Vikram_C_BAMS_Resume.pdf',
-    assessmentScores: { 'Domain Knowledge': 80, 'Scientific/Clinical Skills': 75, 'Technical/Data Skills': 48, 'Communication': 84, 'Regulatory/Compliance': 65 }
-  },
-  {
-    id: 'std-12',
-    name: 'Neha Kapur',
-    email: 'neha.kapur@aiia.gov.in',
-    phone: '+91 94191 11223',
-    institutionId: 'inst-2',
-    avatar: 'NK',
-    targetRole: 'Phytochemist Researcher',
-    skills: ['Phytochemistry', 'Drug Standardization', 'Pharmacognosy', 'Research Methodology', 'LIMS (Lab Information Systems)', 'SQL & Database Management'],
-    education: { degree: 'M.Sc. in Botany / Ayush Ph.D. Scholar', year: '3rd Year Scholar', cgpa: '9.5/10.0' },
-    certifications: [{ id: 'cert-16', name: 'High-Performance Thin-Layer Chromatography (HPTLC)', issuer: 'CAMAG', date: '2025-04', status: 'Verified' }],
-    projects: [{ title: 'Fingerprinting of Triphala Churna Extracts', desc: 'Identified Gallic Acid ratios across five commercial brands using HPTLC methods.' }],
-    achievements: ['Best Poster Award at World Ayurveda Congress 2025'],
-    resumeName: 'Neha_Kapur_Phd_Phytochem.pdf',
-    assessmentScores: { 'Domain Knowledge': 96, 'Scientific/Clinical Skills': 94, 'Technical/Data Skills': 75, 'Communication': 85, 'Regulatory/Compliance': 88 }
-  },
-  {
-    id: 'std-13',
-    name: 'Rahul Deshmukh',
-    email: 'rahul.d@nia.nic.in',
-    phone: '+91 93221 44556',
-    institutionId: 'inst-1',
-    avatar: 'RD',
-    targetRole: 'Hospital Administrator',
-    skills: ['Hospital Administration', 'Healthcare Analytics', 'Team Leadership', 'Project Management', 'Quality Assurance', 'Regulatory Compliance'],
-    education: { degree: 'BAMS + Master of Hospital Administration (MHA)', year: 'Final Year MHA', cgpa: '8.6/10.0' },
-    certifications: [{ id: 'cert-17', name: 'NABH Accreditation Standards Course', issuer: 'Quality Council of India', date: '2025-09', status: 'Verified' }],
-    projects: [{ title: 'Optimizing Discharge Cycles in Ayush Tertiary Hospital', desc: 'Reduced average discharge processing time from 4.5 hours to 2.1 hours using queueing models.' }],
-    achievements: ['Interned with NABH team during official inspection of NIA Hospital'],
-    resumeName: 'Rahul_Deshmukh_MHA.pdf',
-    assessmentScores: { 'Domain Knowledge': 82, 'Scientific/Clinical Skills': 70, 'Technical/Data Skills': 75, 'Communication': 92, 'Regulatory/Compliance': 90 }
-  },
-  {
-    id: 'std-14',
-    name: 'Divya Joshi',
-    email: 'divya.j@aiia.gov.in',
-    phone: '+91 80900 11223',
-    institutionId: 'inst-2',
-    avatar: 'DJ',
-    targetRole: 'Yoga Clinical Therapist',
-    skills: ['Yoga Instruction & Therapy', 'Dietetics & Nutrition', 'Scientific Writing & Communication', 'Community Outreach', 'Research Methodology'],
-    education: { degree: 'B.Sc. in Yoga Sciences + PG Diploma in Yoga Therapy', year: 'Final Year PG', cgpa: '8.8/10.0' },
-    certifications: [{ id: 'cert-18', name: 'Yoga Therapist Certification', issuer: 'YCB Ministry of Ayush', date: '2025-03', status: 'Verified' }],
-    projects: [{ title: 'Yoga for Post-Viral Fatigue Syndrome', desc: 'Supervised clinical protocols combining Pranayama and restorative postures in post-COVID recovery cases.' }],
-    achievements: ['Gold Medalist, National Yoga Asana Championship 2024'],
-    resumeName: 'Divya_Joshi_YogaTherapy.pdf',
-    assessmentScores: { 'Domain Knowledge': 90, 'Scientific/Clinical Skills': 80, 'Technical/Data Skills': 55, 'Communication': 94, 'Regulatory/Compliance': 80 }
-  },
-  {
-    id: 'std-15',
-    name: 'Kunzang Choden',
-    email: 'kunzang.c@nisr.gov.in',
-    phone: '+91 70889 00112',
-    institutionId: 'inst-4',
-    avatar: 'KC',
-    targetRole: 'Traditional Dietetic Consultant',
-    skills: ['Dietetics & Nutrition', 'Herbal Formulation', 'Botanical Identification', 'Community Outreach', 'Interpersonal Skills'],
-    education: { degree: 'BSRMS', year: '4th Year', cgpa: '8.2/10.0' },
-    certifications: [],
-    projects: [{ title: 'Nutritional Analysis of Ladakh Barley Powders (Tsampa)', desc: 'Documented health benefits and formulated low-glycemic dietary variants.' }],
-    achievements: [],
-    resumeName: 'Kunzang_Choden_SowaRigpa.pdf',
-    assessmentScores: { 'Domain Knowledge': 84, 'Scientific/Clinical Skills': 74, 'Technical/Data Skills': 45, 'Communication': 82, 'Regulatory/Compliance': 68 }
-  },
-  {
-    id: 'std-16',
-    name: 'Ayush Goel',
-    email: 'ayush.goel@nia.nic.in',
-    phone: '+91 99009 98877',
-    institutionId: 'inst-1',
-    avatar: 'AG',
-    targetRole: 'Bioinformatics Analyst',
-    skills: ['Bioinformatics Tools', 'Python Programming', 'Data Analysis', 'Phytochemistry', 'Research Methodology', 'Machine Learning'],
-    education: { degree: 'B.Tech Biotechnology (Ayush Research Minor)', year: '4th Year B.Tech', cgpa: '8.7/10.0' },
-    certifications: [{ id: 'cert-19', name: 'Molecular Docking and Drug Design', issuer: 'Bioinformatics Institute', date: '2025-08', status: 'Pending' }],
-    projects: [{ title: 'In-Silico Screening of Curcumin Analogs against SARS-CoV-2 Protease', desc: 'Conducted ligand preparation, molecular docking, and ADME prediction using Autodock Vina.' }],
-    achievements: ['Won Best Innovation Idea at IIT-Delhi Bio-Design Summit 2025'],
-    resumeName: 'Ayush_Goel_Bioinformatics_Resume.pdf',
-    assessmentScores: { 'Domain Knowledge': 78, 'Scientific/Clinical Skills': 90, 'Technical/Data Skills': 92, 'Communication': 80, 'Regulatory/Compliance': 74 }
   }
 ];
 
-// 4. Mock Companies / Recruiter Postings
+// 4. Mock Companies / Tech Recruiters
 export const MOCK_COMPANIES = [
   {
     id: 'comp-1',
-    name: 'Himalaya Wellness Co.',
-    sector: 'Ayush / Wellness',
-    logoText: 'HW',
-    logoBg: 'bg-emerald-700 text-white',
-    desc: 'Himalaya is a global pioneer in herbal health and personal care products, integrating classical Ayurveda with modern clinical science.',
+    name: 'Google India',
+    sector: 'Software & Cloud Infrastructure',
+    logoText: 'GO',
+    logoBg: 'bg-blue-600 text-white',
+    desc: 'Google organizes the world\'s information and makes it universally accessible and useful through world-class engineering, distributed cloud systems, and AI platforms.',
     location: 'Bengaluru, Karnataka',
-    website: 'himalayawellness.in'
+    website: 'careers.google.com'
   },
   {
     id: 'comp-2',
-    name: 'Patanjali Research Foundation',
-    sector: 'R&D / Ayurveda',
-    logoText: 'PR',
-    logoBg: 'bg-orange-600 text-white',
-    desc: 'Dedicated to scientific validation of herbal medicines, mineral preparations, and Yoga, incorporating state-of-the-art analytical equipment.',
-    location: 'Haridwar, Uttarakhand',
-    website: 'patanjaliresearchfoundation.org'
+    name: 'Microsoft India',
+    sector: 'AI & Enterprise Distributed Systems',
+    logoText: 'MS',
+    logoBg: 'bg-sky-600 text-white',
+    desc: 'Microsoft India Research & Development leads foundational breakthroughs in large language models, cloud native computing (Azure), and modern engineering tooling.',
+    location: 'Hyderabad, Telangana',
+    website: 'careers.microsoft.com'
   },
   {
     id: 'comp-3',
-    name: 'Dabur India Ltd.',
-    sector: 'FMCG / Health',
-    logoText: 'DB',
-    logoBg: 'bg-green-700 text-white',
-    desc: 'One of India\'s leading FMCG companies with a legacy of 135+ years delivering herbal and natural healthcare products.',
-    location: 'Ghaziabad, Uttar Pradesh',
-    website: 'dabur.com'
+    name: 'NVIDIA India',
+    sector: 'Semiconductor, AI & GPU Acceleration',
+    logoText: 'NV',
+    logoBg: 'bg-emerald-600 text-white',
+    desc: 'NVIDIA pioneered accelerated computing to tackle challenges no one else can solve. Our work in AI, graphics, and robotics is transforming the world\'s largest industries.',
+    location: 'Bengaluru, Karnataka',
+    website: 'nvidia.com/careers'
   },
   {
     id: 'comp-4',
-    name: 'Aarogyam MedTech & IT Solutions',
-    sector: 'Ayush Informatics',
-    logoText: 'AM',
-    logoBg: 'bg-indigo-600 text-white',
-    desc: 'A technology start-up building telemedicine systems, Prakriti-assessment software, and digital clinical registers for Ayush doctors.',
-    location: 'Pune, Maharashtra',
-    website: 'aarogyamtech.co.in'
+    name: 'Qualcomm India',
+    sector: 'Embedded Systems & Wireless SoC',
+    logoText: 'QC',
+    logoBg: 'bg-indigo-700 text-white',
+    desc: 'Qualcomm is the world\'s leading wireless technology innovator, inventing technologies that transform how the world connects, computes, and communicates.',
+    location: 'Hyderabad, Telangana',
+    website: 'qualcomm.com/careers'
   },
   {
     id: 'comp-5',
-    name: 'Kottakkal Arya Vaidya Sala',
-    sector: 'Clinical / Therapeutics',
-    logoText: 'KA',
-    logoBg: 'bg-yellow-800 text-white',
-    desc: 'A charitable institution offering classical Ayurvedic medicines and authentic Panchakarma treatments to patients all over the world.',
-    location: 'Malappuram, Kerala',
-    website: 'aryavaidyasala.com'
+    name: 'TCS Research & Innovations',
+    sector: 'Enterprise Architecture & Applied AI',
+    logoText: 'TC',
+    logoBg: 'bg-slate-800 text-white',
+    desc: 'TCS Research invents future-ready technologies, architecting next-generation distributed systems, quantum algorithms, and resilient industrial software.',
+    location: 'Pune, Maharashtra',
+    website: 'tcs.com/research'
   },
   {
     id: 'comp-6',
-    name: 'SBL Homeopathy',
-    sector: 'Homeopathy Manufacturing',
-    logoText: 'SB',
-    logoBg: 'bg-blue-700 text-white',
-    desc: 'SBL is a leading homeopathic medicines manufacturer in India, committed to standardization and highest quality guidelines.',
-    location: 'Sahibabad, Uttar Pradesh',
-    website: 'sblglobal.in'
+    name: 'Infosys Innovation Labs',
+    sector: 'Cloud Engineering & Digital Transformation',
+    logoText: 'IN',
+    logoBg: 'bg-blue-800 text-white',
+    desc: 'Infosys is a global leader in next-generation digital services and consulting, empowering engineering talent to build scalable solutions.',
+    location: 'Bengaluru, Karnataka',
+    website: 'infosys.com'
   }
 ];
 
+// 5. Mock Opportunities / Engineering Postings
 export const MOCK_OPPORTUNITIES = [
   {
     id: 'job-1',
     companyId: 'comp-1',
-    companyName: 'Himalaya Wellness Co.',
-    logoText: 'HW',
-    logoBg: 'bg-emerald-700 text-white',
-    title: 'Herbal Formulation Intern',
-    sector: 'Ayush / Wellness',
-    location: 'Bengaluru R&D Lab (Onsite)',
-    mode: 'Onsite',
-    stipend: '₹22,000 / month',
-    stipendNum: 22000,
+    companyName: 'Google India',
+    logoText: 'GO',
+    logoBg: 'bg-blue-600 text-white',
+    title: 'Software Development Engineer (SDE) Intern',
+    sector: 'Software & Cloud Infrastructure',
+    location: 'Bengaluru Engineering Centre (Hybrid)',
+    mode: 'Hybrid',
+    stipend: '₹1,00,000 / month',
+    stipendNum: 100000,
     duration: '6 Months',
-    deadline: '2026-09-15',
-    description: 'We are seeking a proactive BAMS or MD Postgraduate intern to work in our Dravyaguna Research Department. The intern will assist in preparing stable herbal syrups and tablets, standardizing raw materials, and reviewing safety literature under senior scientists.',
+    deadline: '2026-09-25',
+    description: 'Join Google core infrastructure and product teams. You will design, develop, test, deploy, maintain, and enhance scalable software solutions solving complex distributed computing and system performance challenges.',
     requiredSkills: [
-      'Herbal Formulation',
-      'Ayurvedic Pharmacology',
-      'Botanical Identification',
-      'Quality Assurance',
-      'Research Methodology'
+      'Data Structures & Algorithms',
+      'Python Programming',
+      'System Design & Distributed Systems',
+      'Problem Solving & Analytical Thinking',
+      'Git & Open Source Workflow'
     ],
     status: 'Open',
     type: 'Internship'
@@ -607,99 +474,99 @@ export const MOCK_OPPORTUNITIES = [
   {
     id: 'job-2',
     companyId: 'comp-2',
-    companyName: 'Patanjali Research Foundation',
-    logoText: 'PR',
-    logoBg: 'bg-orange-600 text-white',
-    title: 'Clinical Trial Coordinator',
-    sector: 'R&D / Ayurveda',
-    location: 'Haridwar HQ (Hybrid)',
-    mode: 'Hybrid',
-    stipend: '₹25,000 / month',
-    stipendNum: 25000,
+    companyName: 'Microsoft India',
+    logoText: 'MS',
+    logoBg: 'bg-sky-600 text-white',
+    title: 'AI & Machine Learning Research Intern',
+    sector: 'AI & Enterprise Distributed Systems',
+    location: 'Hyderabad Campus (Onsite)',
+    mode: 'Onsite',
+    stipend: '₹90,000 / month',
+    stipendNum: 90000,
     duration: '6 Months',
-    deadline: '2026-09-20',
-    description: 'Assist in coordinating phase-II trials on proprietary immunomodulators. Duties include creating case report forms (CRFs), monitoring patient vitals, organizing trial logs, and performing basic data analysis. Knowledge of CDSCO regulations and GCP guidelines is mandatory.',
+    deadline: '2026-09-30',
+    description: 'Work with Microsoft Research scientists and Azure AI engineers on next-generation Generative AI models, vector search optimization, and fine-tuning reasoning architectures for enterprise workloads.',
     requiredSkills: [
-      'Clinical Trials Coordination',
-      'Clinical Documentation',
-      'Regulatory Compliance',
-      'Scientific Writing & Communication',
-      'Data Analysis'
+      'Machine Learning',
+      'Deep Learning (PyTorch/TensorFlow)',
+      'Large Language Models & GenAI',
+      'Python Programming',
+      'Problem Solving & Analytical Thinking'
     ],
     status: 'Open',
     type: 'Internship'
   },
   {
     id: 'job-3',
-    companyId: 'comp-4',
-    companyName: 'Aarogyam MedTech & IT Solutions',
-    logoText: 'AM',
-    logoBg: 'bg-indigo-600 text-white',
-    title: 'Frontend Developer (Ayush Informatics)',
-    sector: 'Ayush Informatics',
-    location: 'Pune (Remote)',
-    mode: 'Remote',
-    stipend: '₹30,000 / month',
-    stipendNum: 30000,
-    duration: '3 Months',
-    deadline: '2026-09-10',
-    description: 'We are building a React-based clinic dashboard for Ayurvedic physicians. This role requires implementing patient dashboards, EHR charts, and assessment tools. Candidates should have experience in React, responsive CSS, and a basic understanding of health data variables.',
-    requiredSkills: [
-      'React & Frontend Dev',
-      'Data Analysis',
-      'SQL & Database Management',
-      'Telemedicine Systems',
-      'Presentation Skills'
-    ],
-    status: 'Open',
-    type: 'Internship'
-  },
-  {
-    id: 'job-4',
-    companyId: 'comp-5',
-    companyName: 'Kottakkal Arya Vaidya Sala',
-    logoText: 'KA',
-    logoBg: 'bg-yellow-800 text-white',
-    title: 'Panchakarma Clinical Resident',
-    sector: 'Clinical / Therapeutics',
-    location: 'Kottakkal Hospital (Onsite)',
+    companyId: 'comp-3',
+    companyName: 'NVIDIA India',
+    logoText: 'NV',
+    logoBg: 'bg-emerald-600 text-white',
+    title: 'Computer Vision & Deep Learning Engineer',
+    sector: 'Semiconductor, AI & GPU Acceleration',
+    location: 'Bengaluru Tech Park (Onsite)',
     mode: 'Onsite',
-    stipend: '₹18,000 / month',
-    stipendNum: 18000,
-    duration: '6 Months',
-    deadline: '2026-09-30',
-    description: 'A hands-on clinical residency for final year BAMS graduates. Work directly with patients undergoing classical treatments (Vamana, Virechana, Basti). The resident will document patient histories, prepare therapy charts, and monitor post-treatment recovery indices.',
+    stipend: '₹95,000 / month',
+    stipendNum: 95000,
+    duration: 'Full-time',
+    deadline: '2026-10-15',
+    description: 'Build real-time perception models and CUDA-accelerated vision pipelines for autonomous robotics, synthetic sensor simulation, and neural rendering engines.',
     requiredSkills: [
-      'Panchakarma Therapy',
-      'Ayurvedic Pharmacology',
-      'Clinical Documentation',
-      'Dietetics & Nutrition',
-      'Interpersonal Skills'
+      'Computer Vision',
+      'Deep Learning (PyTorch/TensorFlow)',
+      'Python Programming',
+      'Signal Processing',
+      'Unit Testing & Quality Assurance'
     ],
     status: 'Open',
     type: 'Placement'
   },
   {
-    id: 'job-5',
-    companyId: 'comp-3',
-    companyName: 'Dabur India Ltd.',
-    logoText: 'DB',
-    logoBg: 'bg-green-700 text-white',
-    title: 'Quality Assurance Executive',
-    sector: 'FMCG / Health',
-    location: 'Ghaziabad Factory (Onsite)',
+    id: 'job-4',
+    companyId: 'comp-4',
+    companyName: 'Qualcomm India',
+    logoText: 'QC',
+    logoBg: 'bg-indigo-700 text-white',
+    title: 'Embedded Firmware & SoC Intern',
+    sector: 'Embedded Systems & Wireless SoC',
+    location: 'Hyderabad R&D Lab (Onsite)',
     mode: 'Onsite',
-    stipend: '₹35,000 / month',
-    stipendNum: 35000,
+    stipend: '₹75,000 / month',
+    stipendNum: 75000,
+    duration: '6 Months',
+    deadline: '2026-09-20',
+    description: 'Develop and validate low-level device drivers, power management firmware, and hardware abstraction layer (HAL) protocols for next-generation Snapdragon processing architectures.',
+    requiredSkills: [
+      'Embedded Systems & RTOS',
+      'VLSI & Digital System Design',
+      'IoT & Sensor Networks',
+      'Signal Processing',
+      'Problem Solving & Analytical Thinking'
+    ],
+    status: 'Open',
+    type: 'Internship'
+  },
+  {
+    id: 'job-5',
+    companyId: 'comp-5',
+    companyName: 'TCS Research & Innovations',
+    logoText: 'TC',
+    logoBg: 'bg-slate-800 text-white',
+    title: 'Cloud & Distributed Systems Architect',
+    sector: 'Enterprise Architecture & Applied AI',
+    location: 'Pune Research Park (Hybrid)',
+    mode: 'Hybrid',
+    stipend: '₹60,000 / month',
+    stipendNum: 60000,
     duration: 'Full-time',
     deadline: '2026-10-05',
-    description: 'Perform standard chemical and pharmacognostical testing on incoming herbal raw materials. Create and update Certificate of Analysis (CoA) records, maintain laboratory inventory, and ensure GMP guidelines are observed across raw material sourcing lines.',
+    description: 'Design zero-trust multi-cloud platforms, event-driven streaming fabrics with Kafka, and automated Kubernetes operators for mission-critical enterprise systems.',
     requiredSkills: [
-      'Quality Assurance',
-      'Drug Standardization',
-      'Pharmacognosy',
-      'Regulatory Compliance',
-      'Project Management'
+      'Cloud Computing (AWS/GCP)',
+      'Containerization (Docker & Kubernetes)',
+      'DevOps & CI/CD Pipelines',
+      'System Design & Distributed Systems',
+      'SQL & Database Management'
     ],
     status: 'Open',
     type: 'Placement'
@@ -707,131 +574,31 @@ export const MOCK_OPPORTUNITIES = [
   {
     id: 'job-6',
     companyId: 'comp-6',
-    companyName: 'SBL Homeopathy',
-    logoText: 'SB',
-    logoBg: 'bg-blue-700 text-white',
-    title: 'Homeopathic Quality Analyst',
-    sector: 'Homeopathy Manufacturing',
-    location: 'Sahibabad Lab (Onsite)',
-    mode: 'Onsite',
-    stipend: '₹20,000 / month',
-    stipendNum: 20000,
-    duration: '6 Months',
-    deadline: '2026-09-12',
-    description: 'Work in our analytics lab standardizing homeopthic mother tinctures and dilutions. Perform TLC, UV-Vis spectrophotometry, and organoleptic testing on raw materials. Review compliance against the Homeopathic Pharmacopoeia of India (HPI).',
-    requiredSkills: [
-      'Drug Standardization',
-      'Regulatory Compliance',
-      'Pharmacognosy',
-      'Quality Assurance',
-      'Research Methodology'
-    ],
-    status: 'Open',
-    type: 'Internship'
-  },
-  {
-    id: 'job-7',
-    companyId: 'comp-1',
-    companyName: 'Himalaya Wellness Co.',
-    logoText: 'HW',
-    logoBg: 'bg-emerald-700 text-white',
-    title: 'Regulatory Affairs Associate',
-    sector: 'Ayush / Wellness',
-    location: 'Bengaluru HQ (Onsite)',
-    mode: 'Onsite',
-    stipend: '₹40,000 / month',
-    stipendNum: 40000,
-    duration: 'Full-time',
-    deadline: '2026-09-25',
-    description: 'Review product labeling, safety sheets, and manufacturing dossiers for global export registration. Coordinate with laboratory testing teams to compile data required for FDA, CDSCO, and international regulatory filings.',
-    requiredSkills: [
-      'Regulatory Compliance',
-      'Scientific Writing & Communication',
-      'Project Management',
-      'Quality Assurance',
-      'IPR & Patent Filing'
-    ],
-    status: 'Open',
-    type: 'Placement'
-  },
-  {
-    id: 'job-8',
-    companyId: 'comp-2',
-    companyName: 'Patanjali Research Foundation',
-    logoText: 'PR',
-    logoBg: 'bg-orange-600 text-white',
-    title: 'Phytochemistry Research Intern',
-    sector: 'R&D / Ayurveda',
-    location: 'Haridwar HQ (Onsite)',
-    mode: 'Onsite',
-    stipend: '₹24,000 / month',
-    stipendNum: 24000,
+    companyName: 'Infosys Innovation Labs',
+    logoText: 'IN',
+    logoBg: 'bg-blue-800 text-white',
+    title: 'Full-Stack Cloud Developer Intern',
+    sector: 'Cloud Engineering & Digital Transformation',
+    location: 'Bengaluru Campus (Remote Available)',
+    mode: 'Remote',
+    stipend: '₹50,000 / month',
+    stipendNum: 50000,
     duration: '6 Months',
     deadline: '2026-09-18',
-    description: 'Extract and profile active secondary metabolites from Himalayan herbs. The intern will operate extraction assemblies, prepare fractions, and perform phytochemical tests. Candidates must have solid laboratory safety awareness and basic organic chemistry background.',
+    description: 'Develop responsive, highly interactive web applications and microservices. Build modern UI workflows with React, implement secure REST/GraphQL APIs, and write robust unit tests.',
     requiredSkills: [
-      'Phytochemistry',
-      'Drug Standardization',
-      'Research Methodology',
-      'Quality Assurance',
-      'Data Analysis'
+      'React & Frontend Dev',
+      'API Development & Microservices',
+      'SQL & Database Management',
+      'Unit Testing & Quality Assurance',
+      'Git & Open Source Workflow'
     ],
     status: 'Open',
     type: 'Internship'
-  },
-  {
-    id: 'job-9',
-    companyId: 'comp-4',
-    companyName: 'Aarogyam MedTech & IT Solutions',
-    logoText: 'AM',
-    logoBg: 'bg-indigo-600 text-white',
-    title: 'Telemedicine Systems Associate',
-    sector: 'Ayush Informatics',
-    location: 'Pune (Hybrid)',
-    mode: 'Hybrid',
-    stipend: '₹22,000 / month',
-    stipendNum: 22000,
-    duration: '6 Months',
-    deadline: '2026-09-14',
-    description: 'Work with the operations team to deploy telemedicine kiosks in wellness clinics. Gather user requirements, perform system testing, customize software fields for ayurvedic terminology, and train local staff on operating dashboards.',
-    requiredSkills: [
-      'Telemedicine Systems',
-      'Healthcare Analytics',
-      'Presentation Skills',
-      'Team Leadership',
-      'Community Outreach'
-    ],
-    status: 'Open',
-    type: 'Internship'
-  },
-  {
-    id: 'job-10',
-    companyId: 'comp-5',
-    companyName: 'Kottakkal Arya Vaidya Sala',
-    logoText: 'KA',
-    logoBg: 'bg-yellow-800 text-white',
-    title: 'Diet & Nutritionist Consultant',
-    sector: 'Clinical / Therapeutics',
-    location: 'Kochi Branch (Onsite)',
-    mode: 'Onsite',
-    stipend: '₹32,000 / month',
-    stipendNum: 32000,
-    duration: 'Full-time',
-    deadline: '2026-10-01',
-    description: 'Evaluate patient lifestyle and dietetic habits to structure personalized diet plans based on classical Ayurvedic concepts (Pathya/Apathya, Ahara) alongside modern caloric metrics. The candidate will run nutritional workshops and consult outpatients.',
-    requiredSkills: [
-      'Dietetics & Nutrition',
-      'Ayurvedic Pharmacology',
-      'Communication',
-      'Interpersonal Skills',
-      'Presentation Skills'
-    ],
-    status: 'Open',
-    type: 'Placement'
   }
 ];
 
-// 5. Mock Application Records
+// 6. Mock Application Records
 export const MOCK_APPLICATIONS = [
   {
     id: 'app-1',
@@ -839,19 +606,19 @@ export const MOCK_APPLICATIONS = [
     opportunityId: 'job-1',
     status: 'Shortlisted',
     appliedDate: '2026-08-10',
-    feedback: 'Excellent resume showing BAMS research minor. Scheduled for technical interview.',
+    feedback: 'Outstanding DSA profile and distributed systems projects. Shortlisted for Technical Interview Round 1.',
     timeline: [
       { status: 'Applied', date: '2026-08-10', description: 'Application submitted online' },
-      { status: 'Shortlisted', date: '2026-08-18', description: 'Resume screening cleared. Shortlisted for round 2.' }
+      { status: 'Shortlisted', date: '2026-08-18', description: 'Resume screening cleared. Shortlisted for round 1 algorithmic interview.' }
     ]
   },
   {
     id: 'app-2',
     studentId: 'std-1',
-    opportunityId: 'job-2',
+    opportunityId: 'job-6',
     status: 'Applied',
     appliedDate: '2026-08-25',
-    feedback: 'Awaiting initial profile review.',
+    feedback: 'Application under review by engineering team.',
     timeline: [
       { status: 'Applied', date: '2026-08-25', description: 'Application submitted online' }
     ]
@@ -862,11 +629,11 @@ export const MOCK_APPLICATIONS = [
     opportunityId: 'job-2',
     status: 'Interview',
     appliedDate: '2026-08-12',
-    feedback: 'Interview scheduled for Sep 2nd at 10 AM via MS Teams. Topic: CDSCO clinical regulations.',
+    feedback: 'Round 1 technical discussion on LLM fine-tuning cleared. Final research panel interview scheduled.',
     timeline: [
       { status: 'Applied', date: '2026-08-12', description: 'Application submitted online' },
-      { status: 'Shortlisted', date: '2026-08-15', description: 'Shortlisted based on research profile' },
-      { status: 'Interview', date: '2026-08-20', description: 'Round 1 cleared. Final technical panel interview scheduled.' }
+      { status: 'Shortlisted', date: '2026-08-15', description: 'Shortlisted based on NeurIPS publication' },
+      { status: 'Interview', date: '2026-08-20', description: 'Round 1 cleared. Panel interview scheduled.' }
     ]
   },
   {
@@ -875,121 +642,41 @@ export const MOCK_APPLICATIONS = [
     opportunityId: 'job-4',
     status: 'Applied',
     appliedDate: '2026-08-28',
-    feedback: 'Awaiting hospital selection process.',
+    feedback: 'Awaiting hardware team review.',
     timeline: [
       { status: 'Applied', date: '2026-08-28', description: 'Application submitted online' }
     ]
   },
   {
     id: 'app-5',
-    studentId: 'std-6',
-    opportunityId: 'job-3',
+    studentId: 'std-4',
+    opportunityId: 'job-5',
     status: 'Selected',
-    appliedDate: '2026-08-05',
-    feedback: 'Congratulations! Selected as Frontend Intern. Joining letter sent via email.',
+    appliedDate: '2026-08-01',
+    feedback: 'Congratulations! Selected as Cloud Solutions Architect. Offer package and onboarding guide sent.',
     timeline: [
-      { status: 'Applied', date: '2026-08-05', description: 'Application submitted online' },
-      { status: 'Shortlisted', date: '2026-08-10', description: 'Cleared coding assessment' },
-      { status: 'Interview', date: '2026-08-15', description: 'Technical & HR interviews completed' },
-      { status: 'Selected', date: '2026-08-22', description: 'Offer extended and accepted' }
+      { status: 'Applied', date: '2026-08-01', description: 'Application submitted' },
+      { status: 'Shortlisted', date: '2026-08-04', description: 'System design screening passed' },
+      { status: 'Interview', date: '2026-08-12', description: 'Completed live cloud architecture exercise' },
+      { status: 'Selected', date: '2026-08-19', description: 'Offer accepted. Joining date: Nov 1st.' }
     ]
   },
   {
     id: 'app-6',
-    studentId: 'std-8',
-    opportunityId: 'job-5',
+    studentId: 'std-6',
+    opportunityId: 'job-1',
     status: 'Selected',
-    appliedDate: '2026-08-01',
-    feedback: 'Offer extended for QA Executive position.',
+    appliedDate: '2026-08-05',
+    feedback: 'Exceptional performance in Distributed Systems and concurrency rounds. SDE Intern offer extended.',
     timeline: [
-      { status: 'Applied', date: '2026-08-01', description: 'Application submitted' },
-      { status: 'Shortlisted', date: '2026-08-04', description: 'Shortlisted for written round' },
-      { status: 'Interview', date: '2026-08-12', description: 'Completed plant visit and interview' },
-      { status: 'Selected', date: '2026-08-19', description: 'Selected. Onboarding scheduled for Oct 1st.' }
-    ]
-  },
-  {
-    id: 'app-7',
-    studentId: 'std-13',
-    opportunityId: 'job-9',
-    status: 'Interview',
-    appliedDate: '2026-08-14',
-    feedback: 'Operations round scheduled for Sep 1st.',
-    timeline: [
-      { status: 'Applied', date: '2026-08-14', description: 'Application submitted' },
-      { status: 'Shortlisted', date: '2026-08-18', description: 'Shortlisted for clinical informatics overview' },
-      { status: 'Interview', date: '2026-08-24', description: 'Operational discussion scheduled' }
+      { status: 'Applied', date: '2026-08-05', description: 'Application submitted online' },
+      { status: 'Shortlisted', date: '2026-08-10', description: 'Coding assessment 100% score' },
+      { status: 'Interview', date: '2026-08-15', description: 'Technical & System Architecture interviews completed' },
+      { status: 'Selected', date: '2026-08-22', description: 'Offer extended and confirmed' }
     ]
   }
 ];
 
-// 6. Mock Industry-Offered Faculty Opportunities & Collaborations
-export const MOCK_FACULTY_OPPORTUNITIES = [
-  {
-    id: 'fop-1',
-    companyName: 'Himalaya Wellness Co.',
-    title: 'Research Sabbatical: Chromatographic Isolation of Actives',
-    location: 'Bengaluru (Onsite)',
-    duration: '2 Months (Summer)',
-    stipend: '₹60,000 / month',
-    description: 'Faculty residency focusing on hands-on deployment of flash chromatography in separating volatile herbal fractions. Ideal for Dravyaguna or Pharmacognosy professors wishing to bridge industrial R&D processes into syllabus guidelines.',
-    deadline: '2026-09-30',
-    type: 'Research Sabbatical',
-    appliedFaculty: [] // Student/faculty emails who expressed interest
-  },
-  {
-    id: 'fop-2',
-    companyName: 'Patanjali Research Foundation',
-    title: 'FDP: Modern Quality Systems for Ayush Products',
-    location: 'Haridwar (Onsite / Online Hybrid)',
-    duration: '1 Week',
-    stipend: 'Sponsored (TA/DA + Honorarium)',
-    description: 'Faculty Development Program focused on WHO GMP certifications, Heavy Metal limits, and HPLC standard operating protocols. Includes lab tours and hands-on validation modules.',
-    deadline: '2026-09-15',
-    type: 'Faculty Development Program (FDP)',
-    appliedFaculty: ['prof.sharma@nia.edu.in']
-  },
-  {
-    id: 'fop-3',
-    companyName: 'Aarogyam MedTech',
-    title: 'Joint R&D: Clinical Informatics Datasets in Ayurveda',
-    location: 'Pune / Remote',
-    duration: '12 Months Collaborative',
-    stipend: 'Grant funding up to ₹5,00,000',
-    description: 'A sponsored research project aiming to digitize classical diagnostic tables. Seeking collaboration with academic teams to review semantic tags and database mappings against Sanskrit textbooks.',
-    deadline: '2026-10-15',
-    type: 'Research Collaboration',
-    appliedFaculty: []
-  }
-];
-
-// 7. Mock MoUs / Partnered Collaborations
-export const MOCK_COLLABORATIONS = [
-  {
-    id: 'col-1',
-    institutionName: 'National Institute of Ayurveda (NIA)',
-    companyName: 'Himalaya Wellness Co.',
-    dateSigned: '2024-05-12',
-    status: 'Active',
-    focus: 'Student Internship Placement and Herbal Extraction research',
-    mouDocument: 'MoU_NIA_Himalaya_2024.pdf'
-  },
-  {
-    id: 'col-2',
-    institutionName: 'All India Institute of Ayurveda (AIIA)',
-    companyName: 'Patanjali Research Foundation',
-    dateSigned: '2025-01-20',
-    status: 'Active',
-    focus: 'Clinical trials validation methodologies and PhD student exchanges',
-    mouDocument: 'MoU_AIIA_Patanjali_25.pdf'
-  },
-  {
-    id: 'col-3',
-    institutionName: 'National Institute of Homoeopathy (NIH)',
-    companyName: 'SBL Homeopathy',
-    dateSigned: '2023-11-05',
-    status: 'Active',
-    focus: 'Manufacturing plant visits, raw materials testing labs standardization',
-    mouDocument: 'MoU_NIH_SBL_2023.pdf'
-  }
-];
+// Empty legacy exports kept for safety
+export const MOCK_FACULTY_OPPORTUNITIES = [];
+export const MOCK_COLLABORATIONS = [];

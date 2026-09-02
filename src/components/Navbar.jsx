@@ -39,8 +39,8 @@ const Navbar = () => {
       // Default notification
       notificationsList.push({
         id: 'notif-welcome',
-        title: 'Welcome to Ayush SkillBridge',
-        desc: 'Complete your Skill Assessment to find tailored internship matches.',
+        title: 'Welcome to Skill Bridge',
+        desc: 'Complete your Skill Assessment to find tailored engineering internship matches.',
         time: '3 days ago',
         unread: false
       });
@@ -97,7 +97,7 @@ const Navbar = () => {
       notificationsList.push({
         id: 'notif-acad-welcome',
         title: 'Portal Initialized',
-        desc: 'Collaboration hub with Patanjali and Himalaya is active.',
+        desc: 'Campus recruitment drive with Google India and Microsoft is active.',
         time: '3 days ago',
         unread: false
       });
@@ -106,7 +106,7 @@ const Navbar = () => {
     }
 
     return [
-      { id: 'notif-pub', title: 'Portal Launch', desc: 'Ministry of Ayush Academia-Industry Skills mapping is active.', time: '1 week ago', unread: false }
+      { id: 'notif-pub', title: 'Portal Launch', desc: 'Engineering Academia-Industry Skills mapping is active.', time: '1 week ago', unread: false }
     ];
   };
 
@@ -133,8 +133,8 @@ const Navbar = () => {
             <Sparkles className="w-5 h-5 font-bold" />
           </div>
           <div className="flex flex-col">
-            <span className="font-extrabold text-lg tracking-tight text-white">AYUSH SkillBridge</span>
-            <span className="text-[10px] text-slate-400 font-medium leading-tight">Academia - Industry Collaboration</span>
+            <span className="font-extrabold text-lg tracking-tight text-white">Skill Bridge</span>
+            <span className="text-[10px] text-slate-400 font-medium leading-tight">Academia - Industry Engineering Collaboration</span>
           </div>
         </Link>
 

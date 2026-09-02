@@ -15,16 +15,15 @@ const Home = () => {
         <div className="relative max-w-5xl mx-auto text-center space-y-8">
           <div className="inline-flex items-center space-x-2 bg-slate-800/80 px-4 py-1.5 rounded-full border border-slate-700 text-xs font-semibold tracking-wider text-amber-400 uppercase">
             <Sparkles className="w-4 h-4 text-amber-400" />
-            <span>Ministry of Ayush • Smart Automation Portal</span>
+            <span>National Engineering Portal • Smart Industry Bridge</span>
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-none bg-gradient-to-r from-amber-400 via-teal-300 to-indigo-400 bg-clip-text text-transparent">
-            Bridging the Gap Between <br className="hidden sm:inline" /> Ayush Education & Industry
+            Bridging the Gap Between <br className="hidden sm:inline" /> Engineering Education & Industry
           </h1>
 
           <p className="max-w-2xl mx-auto text-slate-300 text-base sm:text-lg lg:text-xl font-normal leading-relaxed">
-            A unified skill mapping, internship, and placement coordination portal connecting students, 
-            academic institutions, and wellness/pharma recruiters under a single collaborative ecosystem.
+            A unified skill mapping, internship, and placement coordination portal connecting students from premier IITs and engineering colleges with top technology recruiters under a single collaborative ecosystem.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
@@ -140,7 +139,7 @@ const Home = () => {
               </li>
               <li className="flex items-start space-x-3">
                 <CheckCircle2 className="w-5 h-5 text-indigo-500 mt-0.5 flex-shrink-0" />
-                <span><strong>Faculty Programs:</strong> Access sponsored research collabs, sabbatical openings, and training programs.</span>
+                <span><strong>Curriculum Alignment:</strong> Synchronize industry tech stacks and bridge skill deficiencies with automated 30-day action roadmaps.</span>
               </li>
             </ul>
           </div>
@@ -162,7 +161,7 @@ const Home = () => {
                 {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-amber-400" />)}
               </div>
               <p className="text-slate-600 text-xs italic">
-                "Finding interns with standard Ayurvedic knowledge combined with basic lab documentation skills used to be a struggle. The skill mapping metrics here let us locate prepared students instantly."
+                "Finding interns with verified distributed systems and DSA problem-solving skills used to take weeks. Skill Bridge lets us filter prepared IIT candidates instantly."
               </p>
               <div className="flex items-center space-x-3 pt-2">
                 <div className="w-9 h-9 rounded-full bg-slate-200 flex items-center justify-center font-bold text-xs text-slate-700">
@@ -170,7 +169,7 @@ const Home = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-xs text-slate-800">Dr. Kiran Kumar</h4>
-                  <p className="text-[10px] text-slate-400">Head HR, Himalaya Wellness</p>
+                  <p className="text-[10px] text-slate-400">Head of University Relations, Google India</p>
                 </div>
               </div>
             </div>
@@ -180,15 +179,15 @@ const Home = () => {
                 {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-amber-400" />)}
               </div>
               <p className="text-slate-600 text-xs italic">
-                "Our students are excellent at diagnostics but lacking in clinical informatics exposure. With this portal, we identified that gap early, and adjusted our final-year workshops accordingly."
+                "Our engineering students are brilliant at theory, but sometimes lack specific cloud native deployment tooling. With this platform's 30-day skill plans, students close these gaps before campus interviews."
               </p>
               <div className="flex items-center space-x-3 pt-2">
                 <div className="w-9 h-9 rounded-full bg-slate-200 flex items-center justify-center font-bold text-xs text-slate-700">
-                  VP
+                  AS
                 </div>
                 <div>
-                  <h4 className="font-semibold text-xs text-slate-800">Prof. V. Pathania</h4>
-                  <p className="text-[10px] text-slate-400">Placement Cell, AIIA Delhi</p>
+                  <h4 className="font-semibold text-xs text-slate-800">Prof. Arvind Sharma</h4>
+                  <p className="text-[10px] text-slate-400">Dean, Placements & Training, IIT Delhi</p>
                 </div>
               </div>
             </div>
@@ -198,7 +197,7 @@ const Home = () => {
                 {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-amber-400" />)}
               </div>
               <p className="text-slate-600 text-xs italic">
-                "The Skill Assessment quiz instantly mapped my Dravyaguna concepts and gave me a radar chart. I applied for a formulation internship and got shortlisted in two days!"
+                "The competency assessment immediately identified my system design gap and gave me an actionable 30-day roadmap. I completed the labs and got shortlisted for an SDE Intern role at Google India!"
               </p>
               <div className="flex items-center space-x-3 pt-2">
                 <div className="w-9 h-9 rounded-full bg-slate-200 flex items-center justify-center font-bold text-xs text-slate-700">
@@ -206,7 +205,7 @@ const Home = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-xs text-slate-800">Aarav Sharma</h4>
-                  <p className="text-[10px] text-slate-400">Student, NIA Jaipur</p>
+                  <p className="text-[10px] text-slate-400">B.Tech Computer Science, IIT Delhi</p>
                 </div>
               </div>
             </div>
@@ -219,13 +218,13 @@ const Home = () => {
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center space-x-2">
             <div className="bg-amber-500 text-slate-950 p-1.5 rounded font-bold text-sm">
-              AS
+              SB
             </div>
-            <span className="font-bold text-white text-sm">AYUSH SkillBridge Portal</span>
+            <span className="font-bold text-white text-sm">Skill Bridge Portal</span>
           </div>
           <p className="text-xs text-center md:text-right">
-            © {new Date().getFullYear()} Ministry of Ayush - Smart India Hackathon. All rights reserved. <br />
-            <span className="text-[10px] text-slate-500">Frontend Mock Demonstration Prototype</span>
+            © {new Date().getFullYear()} National Engineering Academia-Industry Collaboration. All rights reserved. <br />
+            <span className="text-[10px] text-slate-500">Engineering Internship & Placement Platform</span>
           </p>
         </div>
       </footer>

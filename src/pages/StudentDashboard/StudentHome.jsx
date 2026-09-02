@@ -47,8 +47,8 @@ const StudentHome = () => {
           <p className="text-slate-300 text-sm md:text-base leading-relaxed">
             Your skill mapping is {currentUser.assessmentScores ? 'completed' : 'incomplete'}. 
             {currentUser.assessmentScores 
-              ? ' View your proficiency chart below or browse opportunities matched to your Ayurveda skills.' 
-              : ' Take the mock quiz to create your profile and map skills to open industry internships.'}
+              ? ' View your proficiency chart below or browse opportunities matched to your engineering skills.' 
+              : ' Take the competency assessment to create your profile and map skills to open tech company internships.'}
           </p>
         </div>
       </div>
@@ -87,6 +87,29 @@ const StudentHome = () => {
             <Award className="w-6 h-6" />
           </div>
         </div>
+      </div>
+
+      {/* 30-Day Skill Gap Plan Callout Banner */}
+      <div className="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 rounded-2xl p-6 text-white border border-indigo-500/30 shadow-md flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <div className="space-y-1.5 max-w-xl">
+          <div className="flex items-center space-x-2">
+            <span className="bg-amber-500/20 text-amber-300 border border-amber-500/30 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">
+              Sprint Roadmap
+            </span>
+            <span className="text-xs text-slate-300 font-semibold">Recommended for {currentUser.targetRole}</span>
+          </div>
+          <h3 className="text-lg font-bold">Personalized 30-Day Plan for Skill Deficiencies</h3>
+          <p className="text-xs text-slate-300 leading-relaxed">
+            Follow our 4-week structured engineering curriculum designed to eliminate your missing skills and maximize match scoring with top recruiters like Google, Microsoft, and NVIDIA.
+          </p>
+        </div>
+        <Link
+          to="/student/assessment"
+          className="bg-gradient-to-r from-amber-500 to-teal-400 hover:from-amber-600 hover:to-teal-500 text-slate-950 font-bold px-5 py-2.5 rounded-xl text-xs flex items-center space-x-1.5 transition-all shadow-md flex-shrink-0"
+        >
+          <span>Open 30-Day Roadmap</span>
+          <ArrowRight className="w-4 h-4" />
+        </Link>
       </div>
 
       {/* Main Content Layout (Portfolio on Left, Matches on Right) */}
@@ -130,7 +153,7 @@ const StudentHome = () => {
               {/* Institution badge */}
               <div className="text-left sm:text-right">
                 <span className="text-[10px] text-slate-400 font-bold uppercase block tracking-wider">Institution</span>
-                <span className="text-xs font-bold text-slate-700 block">National Institute of Ayurveda (NIA)</span>
+                <span className="text-xs font-bold text-slate-700 block">{currentUser.institutionName || 'Indian Institute of Technology Delhi (IIT Delhi)'}</span>
                 <span className="text-[10px] text-slate-500 block">CGPA: {currentUser.education.cgpa}</span>
               </div>
             </div>

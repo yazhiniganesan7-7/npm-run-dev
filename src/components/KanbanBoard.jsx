@@ -85,7 +85,10 @@ const KanbanBoard = ({ opportunityId }) => {
                       <div className="flex justify-between items-start mb-2">
                         <div>
                           <h4 className="font-semibold text-xs text-slate-800">{student.name}</h4>
-                          <p className="text-[10px] text-slate-500 leading-tight truncate max-w-[110px]">{student.education.degree}</p>
+                          <p className="text-[10px] text-slate-500 leading-tight truncate max-w-[120px]">{student.education.degree}</p>
+                          <span className="inline-block mt-1 text-[9px] font-semibold text-indigo-700 bg-indigo-50 border border-indigo-100/70 px-1.5 py-0.5 rounded">
+                            {student.institutionName?.replace('Indian Institute of Technology', 'IIT')?.replace('National Institute of Technology', 'NIT') || 'IIT'}
+                          </span>
                         </div>
                         <span className={`inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-bold ${
                           match >= 80 ? 'bg-emerald-100 text-emerald-800' : match >= 50 ? 'bg-amber-100 text-amber-800' : 'bg-rose-100 text-rose-800'

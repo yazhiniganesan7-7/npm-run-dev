@@ -4,12 +4,13 @@ import ProgressBar from '../../components/ProgressBar';
 import { Search, MapPin, GraduationCap, Award, FileText, CheckCircle, X, Layers, Briefcase } from 'lucide-react';
 
 const IndustrySearch = () => {
-  const { students, opportunities, currentUser } = useApp();
+  const { students, opportunities, currentUser, institutions } = useApp();
 
   const companyOpps = opportunities.filter(o => o.companyId === currentUser?.id);
   const [compareOppId, setCompareOppId] = useState(companyOpps[0]?.id || '');
   const [searchQuery, setSearchQuery] = useState('');
   const [skillFilter, setSkillFilter] = useState('');
+  const [selectedCollege, setSelectedCollege] = useState('All');
 
   // Detailed profile modal state
   const [selectedStudent, setSelectedStudent] = useState(null);
@@ -37,7 +38,10 @@ const IndustrySearch = () => {
                             student.targetRole.toLowerCase().includes(searchQuery.toLowerCase()) ||
                             student.education.degree.toLowerCase().includes(searchQuery.toLowerCase());
       const matchesSkill = skillFilter === '' || student.skills.some(s => s.toLowerCase().includes(skillFilter.toLowerCase()));
-      return matchesSearch && matchesSkill;
+      const matchesCollege = selectedCollege === 'All' || 
+                             student.institutionName?.toLowerCase().includes(selectedCollege.toLowerCase()) ||
+                             student.institutionId === selectedCollege;
+      return matchesSearch && matchesSkill && matchesCollege;
     })
     // Sort by match percentage (descending) if an opportunity is chosen, otherwise by name
     .sort((a, b) => activeOpp ? b.matchPercentage - a.matchPercentage : a.name.localeCompare(b.name));
@@ -70,7 +74,7 @@ const IndustrySearch = () => {
       </div>
 
       {/* Filter panel */}
-      <div className="bg-white rounded-2xl border border-slate-200 p-4 shadow-xs grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div className="bg-white rounded-2xl border border-slate-200 p-4 shadow-xs grid grid-cols-1 sm:grid-cols-3 gap-4">
         
         {/* Name / Role search */}
         <div className="relative">
@@ -79,7 +83,7 @@ const IndustrySearch = () => {
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Search candidate name, program degree, role..."
+            placeholder="Search candidate name, role, degree..."
             className="w-full border border-slate-300 rounded-lg pl-9 pr-4 py-2.5 bg-slate-50 text-slate-800 text-xs focus:ring-2 focus:ring-emerald-500 focus:outline-none"
           />
         </div>
@@ -91,9 +95,27 @@ const IndustrySearch = () => {
             type="text"
             value={skillFilter}
             onChange={(e) => setSkillFilter(e.target.value)}
-            placeholder="Filter by specific skill tag (e.g. Dravyaguna, SQL)..."
+            placeholder="Filter by skill (e.g. DSA, Python, ML)..."
             className="w-full border border-slate-300 rounded-lg pl-9 pr-4 py-2.5 bg-slate-50 text-slate-800 text-xs focus:ring-2 focus:ring-emerald-500 focus:outline-none"
           />
+        </div>
+
+        {/* Engineering College Filter */}
+        <div className="relative">
+          <GraduationCap className="w-4 h-4 text-slate-400 absolute left-3 top-3.5" />
+          <select
+            value={selectedCollege}
+            onChange={(e) => setSelectedCollege(e.target.value)}
+            className="w-full border border-slate-300 rounded-lg pl-9 pr-4 py-2.5 bg-slate-50 text-slate-800 text-xs focus:ring-2 focus:ring-emerald-500 focus:outline-none font-medium"
+          >
+            <option value="All">All Engineering Colleges</option>
+            <option value="IIT Delhi">IIT Delhi</option>
+            <option value="IIT Bombay">IIT Bombay</option>
+            <option value="IIT Madras">IIT Madras</option>
+            <option value="IIT Kharagpur">IIT Kharagpur</option>
+            <option value="NIT Trichy">NIT Trichy</option>
+            <option value="BITS Pilani">BITS Pilani</option>
+          </select>
         </div>
 
       </div>
@@ -136,6 +158,12 @@ const IndustrySearch = () => {
                       {student.matchPercentage}% match
                     </span>
                   )}
+                </div>
+
+                {/* Engineering College Badge */}
+                <div className="flex items-center space-x-1.5 text-[10px] text-indigo-700 bg-indigo-50/80 border border-indigo-100 px-2.5 py-1 rounded-lg font-semibold w-fit">
+                  <GraduationCap className="w-3.5 h-3.5 text-indigo-600 flex-shrink-0" />
+                  <span className="truncate">{student.institutionName || 'Indian Institute of Technology'}</span>
                 </div>
 
                 <div className="space-y-1">
@@ -185,6 +213,10 @@ const IndustrySearch = () => {
                 <div>
                   <h3 className="font-bold text-sm text-slate-900">{selectedStudent.name}</h3>
                   <p className="text-xs text-slate-400">{selectedStudent.education.degree} • CGPA {selectedStudent.education.cgpa}</p>
+                  <p className="text-[11px] font-semibold text-indigo-600 flex items-center space-x-1 mt-0.5">
+                    <GraduationCap className="w-3 h-3 inline mr-1" />
+                    <span>{selectedStudent.institutionName}</span>
+                  </p>
                 </div>
               </div>
               <button

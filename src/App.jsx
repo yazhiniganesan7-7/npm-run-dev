@@ -27,8 +27,6 @@ import IndustryPrograms from './pages/IndustryDashboard/IndustryPrograms';
 import AcademiaHome from './pages/AcademiaDashboard/AcademiaHome';
 import AcademiaStudents from './pages/AcademiaDashboard/AcademiaStudents';
 import AcademiaAnalytics from './pages/AcademiaDashboard/AcademiaAnalytics';
-import AcademiaCollabs from './pages/AcademiaDashboard/AcademiaCollabs';
-import AcademiaFacultyOps from './pages/AcademiaDashboard/AcademiaFacultyOps';
 import AcademiaVerify from './pages/AcademiaDashboard/AcademiaVerify';
 
 const App = () => {
@@ -66,8 +64,6 @@ const App = () => {
               <Route index element={<AcademiaHome />} />
               <Route path="students" element={<AcademiaStudents />} />
               <Route path="analytics" element={<AcademiaAnalytics />} />
-              <Route path="collabs" element={<AcademiaCollabs />} />
-              <Route path="faculty" element={<AcademiaFacultyOps />} />
               <Route path="verify" element={<AcademiaVerify />} />
             </Route>
           </Route>

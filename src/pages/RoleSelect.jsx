@@ -106,7 +106,7 @@ const RoleSelect = () => {
                   ))}
                 </select>
                 <p className="text-[10px] text-indigo-600 italic mt-1">
-                  💡 Aaron has advanced herbal skills, Priyanka has clinical data skills.
+                  💡 Aarav has full-stack SWE skills, Priyanka has ML/AI research skills.
                 </p>
               </div>
             )}
@@ -127,7 +127,7 @@ const RoleSelect = () => {
                   ))}
                 </select>
                 <p className="text-[10px] text-emerald-600 italic mt-1">
-                  💡 Himalaya has Herbal Formulation roles; Patanjali has Clinical trial postings.
+                  💡 Google India has SDE Intern roles; Microsoft India has AI/ML research postings.
                 </p>
               </div>
             )}
@@ -139,9 +139,9 @@ const RoleSelect = () => {
                   <BookOpen className="w-4 h-4" />
                 </div>
                 <div className="space-y-1">
-                  <h4 className="font-semibold text-xs text-blue-900">National Institute of Ayurveda (NIA)</h4>
+                  <h4 className="font-semibold text-xs text-blue-900">Indian Institute of Technology Delhi (IIT Delhi)</h4>
                   <p className="text-xs text-slate-600">
-                    Entering as college administrator admin account. You will have full access to student directories, placement statistics charts, MoUs signing, and certificate verifications.
+                    Entering as IIT Delhi Placement & Training Office administrator account. You will have full access to engineering student directories, campus placement statistics, and skill certificate verifications.
                   </p>
                 </div>
               </div>

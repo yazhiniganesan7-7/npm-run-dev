@@ -15,18 +15,18 @@ const AcademiaAnalytics = () => {
   ];
 
   const domainPlacementDistribution = [
-    { domain: 'Ayurveda', Placed: 110, 'Target Enrolled': 140 },
-    { domain: 'Homeopathy', Placed: 78, 'Target Enrolled': 95 },
-    { domain: 'Sowa Rigpa', Placed: 28, 'Target Enrolled': 40 },
-    { domain: 'Informatics & Biotech', Placed: 42, 'Target Enrolled': 50 }
+    { domain: 'Computer Science', Placed: 320, 'Target Enrolled': 340 },
+    { domain: 'Data Science & AI', Placed: 180, 'Target Enrolled': 195 },
+    { domain: 'Electrical & Electronics', Placed: 140, 'Target Enrolled': 160 },
+    { domain: 'Mechanical & Automation', Placed: 115, 'Target Enrolled': 130 }
   ];
 
   const stipendTrends = [
-    { year: '2022', 'Avg Stipend (INR)': 12000 },
-    { year: '2023', 'Avg Stipend (INR)': 14000 },
-    { year: '2024', 'Avg Stipend (INR)': 16500 },
-    { year: '2025', 'Avg Stipend (INR)': 19000 },
-    { year: '2026', 'Avg Stipend (INR)': 22000 }
+    { year: '2022', 'Avg Stipend (INR)': 45000 },
+    { year: '2023', 'Avg Stipend (INR)': 58000 },
+    { year: '2024', 'Avg Stipend (INR)': 70000 },
+    { year: '2025', 'Avg Stipend (INR)': 82000 },
+    { year: '2026', 'Avg Stipend (INR)': 95000 }
   ];
 
   return (
@@ -35,14 +35,14 @@ const AcademiaAnalytics = () => {
       {/* Title */}
       <div className="border-b border-slate-200 pb-4">
         <h2 className="text-2xl font-bold text-slate-900 tracking-tight">Placement & Skills Analytics</h2>
-        <p className="text-sm text-slate-500">Track multi-year academic placement trajectories and average stipend values across AYUSH departments.</p>
+        <p className="text-sm text-slate-500">Track multi-year academic placement trajectories and average stipend values across engineering departments.</p>
       </div>
 
       {/* Overview Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <StatCard title="Highest Package Offered" value="₹40,000 / mo" icon={IndianRupee} color="emerald" description="Himalaya Wellness QA Executive" />
-        <StatCard title="Average Stipend Growth" value="+15.7%" icon={TrendingUp} color="indigo" description="Year-on-year increase" />
-        <StatCard title="Placement Readiness Index" value="84.2%" icon={Landmark} color="blue" description="Based on verified skills tag ratios" />
+        <StatCard title="Highest Package Offered" value="₹1,00,000 / mo" icon={IndianRupee} color="emerald" description="Google India SDE Intern" />
+        <StatCard title="Average Stipend Growth" value="+18.5%" icon={TrendingUp} color="indigo" description="Year-on-year increase" />
+        <StatCard title="Placement Readiness Index" value="94.2%" icon={Landmark} color="blue" description="Based on verified engineering skills" />
       </div>
 
       {/* Analytics Charts Grid */}

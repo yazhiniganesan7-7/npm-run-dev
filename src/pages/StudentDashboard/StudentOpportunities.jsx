@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, Link } from 'react-router-dom';
 import { useApp } from '../../context/AppContext';
 import ProgressBar from '../../components/ProgressBar';
 import { Search, MapPin, DollarSign, Calendar, Briefcase, Filter, X, Check, ShieldAlert, AlertCircle } from 'lucide-react';
@@ -68,7 +68,7 @@ const StudentOpportunities = () => {
       {/* Title */}
       <div className="border-b border-slate-200 pb-4">
         <h2 className="text-2xl font-bold text-slate-900 tracking-tight">Internship & Placement Board</h2>
-        <p className="text-sm text-slate-500">Search and filter active opportunities from partnered Ayurvedic and Homoeopathic firms.</p>
+        <p className="text-sm text-slate-500">Search and filter active opportunities from partnered technology, software, and engineering firms.</p>
       </div>
 
       {/* Filter and Search Bar */}
@@ -263,6 +263,20 @@ const StudentOpportunities = () => {
                         </span>
                       ))}
                     </div>
+
+                    {matchDetails.missing.length > 0 && (
+                      <div className="pt-3 border-t border-slate-200/60 mt-3 flex items-center justify-between">
+                        <span className="text-[11px] text-rose-600 font-medium">
+                          {matchDetails.missing.length} missing skill{matchDetails.missing.length > 1 ? 's' : ''} detected
+                        </span>
+                        <Link
+                          to="/student/assessment"
+                          className="inline-flex items-center space-x-1 text-[11px] font-bold text-indigo-700 bg-indigo-50 hover:bg-indigo-100 border border-indigo-200 px-2.5 py-1 rounded-lg transition-colors shadow-2xs"
+                        >
+                          <span>Start 30-Day Plan to Qualify</span>
+                        </Link>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>

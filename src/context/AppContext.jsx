@@ -6,12 +6,26 @@ import {
   MOCK_APPLICATIONS,
   MOCK_COLLABORATIONS,
   MOCK_FACULTY_OPPORTUNITIES,
+  MOCK_INSTITUTIONS,
   SKILL_TAXONOMY
 } from '../data/mockData';
 
 const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
+  // Clear legacy Ayurvedic localStorage data once on upgrade to v2.0
+  if (typeof window !== 'undefined' && localStorage.getItem('sb_version') !== '2.0') {
+    localStorage.removeItem('sih_students');
+    localStorage.removeItem('sih_companies');
+    localStorage.removeItem('sih_opportunities');
+    localStorage.removeItem('sih_applications');
+    localStorage.removeItem('sih_collaborations');
+    localStorage.removeItem('sih_faculty_ops');
+    localStorage.removeItem('sih_user');
+    localStorage.removeItem('sih_rec_programs');
+    localStorage.setItem('sb_version', '2.0');
+  }
+
   // Helper to load from localStorage or fallback
   const getInitialState = (key, fallback) => {
     try {
@@ -109,12 +123,13 @@ export const AppProvider = ({ children }) => {
         showToast(`Logged in as Recruiter for ${company.name}`);
       }
     } else if (role === 'academic') {
-      // Mock login for Academic admin (National Institute of Ayurveda)
+      // Mock login for Academic admin (Indian Institute of Technology Delhi)
       const institute = {
         id: 'inst-1',
-        name: 'National Institute of Ayurveda (NIA)',
+        name: 'Indian Institute of Technology Delhi (IIT Delhi)',
         role: 'academic-admin',
-        adminName: 'Dr. Ramesh Chandra (Dean, Placements)'
+        adminName: 'Prof. Arvind Sharma (Dean, Placements & Internships)',
+        code: 'IITD-110016'
       };
       setCurrentRole('academic');
       setCurrentUser(institute);
@@ -299,6 +314,7 @@ export const AppProvider = ({ children }) => {
       applications,
       collaborations,
       facultyOpportunities,
+      institutions: MOCK_INSTITUTIONS,
       skillsTaxonomy: SKILL_TAXONOMY,
       toasts,
       loginAs,
